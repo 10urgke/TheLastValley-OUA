@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1102,6 +1102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2100730471966671331}
   - component: {fileID: 2100730471966671332}
+  - component: {fileID: 2100730471966671333}
   m_Layer: 0
   m_Name: lowPolyArcher 2
   m_TagString: Untagged
@@ -1360,7 +1361,7 @@ Transform:
   m_GameObject: {fileID: 1615837441121966937}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6070378, y: 0, z: 0.061474323}
+  m_LocalPosition: {x: 2.6070378, y: 0, z: 0.177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1392,6 +1393,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2100730471966671333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615837441121966937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!4 &2129436855914775985
 Transform:
   m_ObjectHideFlags: 0
@@ -2194,7 +2208,7 @@ Transform:
   m_GameObject: {fileID: 2854328161701390185}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000000010135884, y: 0.7071067, z: 0.7071068, w: 7.6401224e-10}
-  m_LocalPosition: {x: 7.1711836e-10, y: -1.4901148e-10, z: 0.0000000013946555}
+  m_LocalPosition: {x: 7.1711836e-10, y: -1.4901148e-10, z: 1.338}
   m_LocalScale: {x: 0.009999998, y: 0.009999998, z: 0.010000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
