@@ -1,11 +1,49 @@
-# Oyun Adı
-Casual 3d arkadaşlar ile oynanabilen action rpg oyunu.
-## Takım ismi
-Unity Grup 16
-## Takım üyeleri
-| Ad       | Ünvan           | Sosyal Medya  |
+# Takım ve Oyun Bilgileri
+## Takım İsmi
+Unity 16
+### Takım Üyeleri
+| Ad - Soyad    | Görev           |  |
 | ------------- |:-------------:| -----:|
-| Dinçer Can Elitok      | developer |[![image](https://github.com/RyzinGit/TheCivilian/assets/34654101/4e738372-8320-4b42-b1b0-093f1f90228d)](https://github.com/10urgke/OUABootcamp) |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Cumali Onur Gökçe     | Developer | a |
+| Deniz Olcaycan   | Product Owner | a |
+| Dinçer Can Elitok    | Developer      | a |
+| Elif Feyza Güneş | Scrum Master      | a |
+| Ertuğrul Küçükel | Developer     | a |
+## Oyun İsmi
+?
+## Product Backlog URL
+[Unity 16 Backlog](https://docs.google.com/document/d/1wK893vqR6YeycGxKqYDaTwcV0PMFjQAu2SJLVI77iBM/edit#heading=h.xvg4yuhgwkhp)
+## Oyun Açıklaması
+*
+## Oyun Özellikleri
+* 3D
+* Multiplayer
+*
+## Hedef Kitle
+*
+*
+*
+---
+# Sprint 1
+* Sprint içinde tamamlanması beklenen puan 54 olarak belirlenmiştir.
+* **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 95 olarak belirlenmiştir. İlk sprint için 54 puan tamamlanarak hedefe ulaşılmıştır.
+* **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
+<details>
+  <summary>Sprint 1 Daily Scrum ve Toplantı Ekran Görüntüleri</summary>
+  
+  ### Daily Scrum
+![Adsız tasarım (10)](https://github.com/10urgke/OUABootcamp/assets/54245938/223e36cc-93ad-483b-a4d9-81d84ea3d37b)
+  
+  ### Toplantı
+![Adsız tasarım (11)](https://github.com/10urgke/OUABootcamp/assets/54245938/bd2fdf70-b692-4830-b024-c7c7831544ff)
+</details>
+
+
+
+
+
+
+
+
+
 
