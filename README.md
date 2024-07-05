@@ -4,11 +4,11 @@ Unity 16
 ### Takım Üyeleri
 | Ad - Soyad    | Görev           |  |
 | ------------- |:-------------:| -----:|
-| Cumali Onur Gökçe     | Developer | a |
-| Deniz Olcaycan   | Product Owner | a |
-| Dinçer Can Elitok    | Developer      | a |
-| Elif Feyza Güneş | Scrum Master      | a |
-| Ertuğrul Küçükel | Developer     | a |
+| Cumali Onur Gökçe     | Developer | <a href="https://github.com/10urgke" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="32" height="32"> </a> |
+| Deniz Olcaycan   | Product Owner | <a href="https://github.com/beybiliboi" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="32" height="32"> </a>  |
+| Dinçer Can Elitok    | Developer      | <a href="https://github.com/DincerCanElitok" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="32" height="32"> </a>  |
+| Elif Feyza Güneş | Scrum Master      | <a href="https://github.com/feyza11" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="32" height="32"> </a>  |
+| Ertuğrul Küçükel | Developer     | <a href="https://github.com/ert2855" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="32" height="32"> </a>  |
 ## Oyun İsmi
 ?
 ## Product Backlog URL
