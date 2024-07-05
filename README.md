@@ -4,11 +4,11 @@ Unity 16
 ### Takım Üyeleri
 | Ad - Soyad    | Görev           |  |
 | ------------- |:-------------:| -----:|
-| Cumali Onur Gökçe     | Developer | <a href="https://github.com/10urgke" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="32" height="32"> </a> |
-| Deniz Olcaycan   | Product Owner | <a href="https://github.com/beybiliboi" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="32" height="32"> </a>  |
-| Dinçer Can Elitok    | Developer      | <a href="https://github.com/DincerCanElitok" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="32" height="32"> </a>  |
-| Elif Feyza Güneş | Scrum Master      | <a href="https://github.com/feyza11" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="32" height="32"> </a>  |
-| Ertuğrul Küçükel | Developer     | <a href="https://github.com/ert2855" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="32" height="32"> </a>  |
+| Cumali Onur Gökçe     | Developer | <a href="https://github.com/10urgke" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/cumali-onur-g%C3%B6k%C3%A7e-791b5b21b/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a> |
+| Deniz Olcaycan   | Product Owner | <a href="https://github.com/beybiliboi" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/denizolcaycan/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a>  |
+| Dinçer Can Elitok    | Developer      | <a href="https://github.com/DincerCanElitok" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/dincer-can-elitok/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a>  |
+| Elif Feyza Güneş | Scrum Master      | <a href="https://github.com/feyza11" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/eliffeyzag%C3%BCne%C5%9F000/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a>  |
+| Ertuğrul Küçükel | Developer     | <a href="https://github.com/ert2855" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/ertu%C4%9Frul-k%C3%BC%C3%A7%C3%BCkel-bb20281a7/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a>  |
 ## Oyun İsmi
 ?
 ## Product Backlog URL
