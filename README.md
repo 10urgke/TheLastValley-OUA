@@ -36,7 +36,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
   <summary>Sprint Board</summary>
   
   ### Sprint Board
-![Adsız tasarım (10)](https://github.com/10urgke/OUABootcamp/assets/54245938/abf1d01a-0976-4319-a74d-9bb30126da81)
+<img src="./ReadmeFolder/sayfa 1.png">
 </details>
 
 * Sprint içinde tamamlanması beklenen puan 54 olarak belirlenmiştir.
@@ -48,13 +48,13 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
   <summary>Daily Scrum, Toplantı ve Fikir Geliştirme Ekran Görüntüleri</summary>
   
   ### Daily Scrum
-![daily scrum](https://github.com/10urgke/OUABootcamp/assets/54245938/1e743dfc-e5e2-4cce-a2dc-dbc843a3b3f2)
+<img src="./ReadmeFolder/daily scrum.png">
 
   ### Toplantı
-![toplantı](https://github.com/10urgke/OUABootcamp/assets/54245938/34173aaa-2a1f-46a9-802e-b214cd838d05)
+<img src="./ReadmeFolder/toplantı.png">
 
   ### Fikir Geliştirme
-![oyun fikri](https://github.com/10urgke/OUABootcamp/assets/54245938/34adf965-c314-4432-a50c-49e80c7af593)
+<img src="./ReadmeFolder/oyun fikri.png">
 
 </details>
 
@@ -62,13 +62,13 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
   <summary>Ürün Durumu</summary>
   
   ### Karakterler
-![karakter taslak](https://github.com/10urgke/OUABootcamp/assets/54245938/43e193bc-55a1-4a7a-b030-309761571a9d)
+<img src="./ReadmeFolder/karakter taslak.png">
 
    ### Yapılar
-![yapı taslak](https://github.com/10urgke/OUABootcamp/assets/54245938/2b485ba9-8ccc-4278-a2de-d90fc3239e62)
+<img src="./ReadmeFolder/yapı taslak.png">
 
   ### Harita Taslağı 
-![map taslak](https://github.com/10urgke/OUABootcamp/assets/54245938/363234e7-aa9b-46cd-8da9-987ef45cce73)
+<img src="./ReadmeFolder/map taslak.png">
 
 
 
