@@ -13,7 +13,7 @@ Unity 16
 Kara Şövalye'nin Laneti (?)
 
 ## Oyun Açıklaması
-Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozmak için birlikte çalıştıkları bir 3D, co-op, RPG, aksiyon oyunudur. Oyuncular, farklı sınıflardan (savaşçı, okçu, şifacı) oluşan kahramanları kontrol eder ve çeşitli görevleri tamamlayarak krallığı eski ihtişamına kavuşturmaya çalışırlar. Oyuncular, lanetli bölgelerdeki yaratıkları temizleyerek, büyülü nesneleri toplayarak ve görevleri tamamlayarak güç kazanırlar. Oyuncular güvenli alanlarda can ve envanter yenileyebilir, NPC’lerden ipuçları alabilir ve co-op oynanış sayesinde görev paylaşımı yaparak düşmanları yenebilir.
+Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozmak için birlikte çalıştıkları bir 3D, co-op, RPG, aksiyon oyunudur. Oyuncular, farklı sınıflardan (savaşçı, okçu, büyücü) oluşan kahramanları kontrol eder ve çeşitli görevleri tamamlayarak krallığı eski ihtişamına kavuşturmaya çalışırlar. Oyuncular, lanetli bölgelerdeki yaratıkları temizleyerek, büyülü nesneleri toplayarak ve görevleri tamamlayarak güç kazanırlar. Oyuncular güvenli alanlarda can ve envanter yenileyebilir, NPC’lerden ipuçları alabilir ve co-op oynanış sayesinde görev paylaşımı yaparak düşmanları yenebilir.
 ## Oyun Özellikleri
 * 3D
 * Multiplayer
