@@ -41,7 +41,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 * Sprint içinde tamamlanması beklenen puan 54 olarak belirlenmiştir.
   
-* **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 95 olarak belirlenmiştir. İlk sprint için 54 puan tamamlanarak hedefe ulaşılmıştır.
+* **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 95 olarak belirlenmiştir. Görev tanımı olarak daha zor olduğu belirlenen görevler iş birliği içerisinde yapılmıştır ve ilk sprint için 54 puan tamamlanarak hedefe ulaşılmıştır.
   
 * **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
 <details>
