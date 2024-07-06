@@ -93,7 +93,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 - Kararları ortak ve hızlı bir şekilde alabildik; grup içi uyumumuz çok iyiydi.
 - Grup içi iletişimimiz, toplantılarımız ve daily scrumlarımız aktif ve verimli geçti.
 - Yapılan işleri çift aşamalı bir kontrolden geçirmemiz sayesinde bir işin düzgün olmama veya zaman kaybetme riskini en aza indirdik
-- Görev dağılımında eksik görevlerin belirleyip uygun bir şekilde dağıtacağız.
+- Görev dağılımında eksik görevleri belirleyip uygun bir şekilde dağıtacağız.
 - Olası problemler için görevlere ekstra zaman vererek süreci daha doğru planlayacağız.
 - Zaman odaklı bir planlama yapmak ve sprint hedeflerine ulaşmak için gereken adımları atacağız
 
