@@ -48,13 +48,13 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
   <summary>Daily Scrum, Toplantı ve Fikir Geliştirme Ekran Görüntüleri</summary>
   
   ### Daily Scrum
-![Adsız tasarım (10)](https://github.com/10urgke/OUABootcamp/assets/54245938/223e36cc-93ad-483b-a4d9-81d84ea3d37b)
+![daily scrum](https://github.com/10urgke/OUABootcamp/assets/54245938/1e743dfc-e5e2-4cce-a2dc-dbc843a3b3f2)
 
   ### Toplantı
-![Adsız tasarım (11)](https://github.com/10urgke/OUABootcamp/assets/54245938/bd2fdf70-b692-4830-b024-c7c7831544ff)
+![toplantı](https://github.com/10urgke/OUABootcamp/assets/54245938/34173aaa-2a1f-46a9-802e-b214cd838d05)
 
   ### Fikir Geliştirme
-![Adsız tasarım (11)](https://github.com/10urgke/OUABootcamp/assets/54245938/1f2e4ae6-4632-4641-b4ba-a2fae0e769f3)
+![oyun fikri](https://github.com/10urgke/OUABootcamp/assets/54245938/34adf965-c314-4432-a50c-49e80c7af593)
 
 </details>
 
@@ -62,13 +62,14 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
   <summary>Ürün Durumu</summary>
   
   ### Karakterler
-![Adsız tasarım (10)](https://github.com/10urgke/OUABootcamp/assets/54245938/4d460075-f7c3-4aff-b0ab-602a566a871d)
+![karakter taslak](https://github.com/10urgke/OUABootcamp/assets/54245938/43e193bc-55a1-4a7a-b030-309761571a9d)
 
    ### Yapılar
-![Adsız tasarım (11)](https://github.com/10urgke/OUABootcamp/assets/54245938/d4daccbe-2e3e-4f0e-85a6-5498ad031569)
+![yapı taslak](https://github.com/10urgke/OUABootcamp/assets/54245938/2b485ba9-8ccc-4278-a2de-d90fc3239e62)
 
   ### Harita Taslağı 
-![Adsız tasarım (11)](https://github.com/10urgke/OUABootcamp/assets/54245938/e966de34-7bd2-4ba7-a88b-caf380c55d7f)
+![map taslak](https://github.com/10urgke/OUABootcamp/assets/54245938/363234e7-aa9b-46cd-8da9-987ef45cce73)
+
 
 
 </details>
