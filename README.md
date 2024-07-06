@@ -77,7 +77,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 - Takım içi roller kararlaştırıldı, görev dağılımı yapıldı.
 - Sprintler hedeflere göre bölündü ve milestonelar belirlendi.
-- Oyun fikirleri sunuldu ,ortak bir karara varıldı ve oyunun sanat stili belirlendi.
+- Oyun fikirleri sunuldu, ortak bir karara varıldı ve oyunun sanat stili belirlendi.
 - Oyunun genel mekanikleri belirlendi ve oluşturuldu.
 - Oyun hikayesi ve oyun akışı belirlendi.
 - Game design document yazıldı.
