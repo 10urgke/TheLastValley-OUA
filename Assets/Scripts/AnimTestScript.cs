@@ -65,11 +65,25 @@ public class AnimTestScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             animator.SetBool("Walk", false);
+            animator.SetBool("CarryWalk", false);
             animator.SetBool("AimWalk", true);
         }
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             animator.SetBool("Walk", true);
+            animator.SetBool("CarryWalk", false);
+            animator.SetBool("AimWalk", false);
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            animator.SetBool("Walk", false);
+            animator.SetBool("CarryWalk", true);
+            animator.SetBool("AimWalk", false);
+        }
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            animator.SetBool("Walk", true);
+            animator.SetBool("CarryWalk", false);
             animator.SetBool("AimWalk", false);
         }
         if (Input.GetKeyDown(KeyCode.D))
