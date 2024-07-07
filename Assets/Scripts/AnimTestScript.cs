@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class AnimTestScript : MonoBehaviour
 {
     [SerializeField]Animator animator;
     float speed;
-    void Anim(string animName)
-    {
-        animator.CrossFade(Animator.StringToHash(animName), 0.1f);
-    }
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -43,39 +40,44 @@ public class AnimTestScript : MonoBehaviour
                 animator.SetBool("run", false);
             }
         }
-        Debug.Log(forwardPressed);
-        if (forwardPressed&&speed<=0.5f)
+        if (forwardPressed&&speed<=0.5f || forwardPressed && runPressed && speed <= 1 || forwardPressed && animator.GetBool("Walk")==false && speed <= 1)
         {
             speed += Time.deltaTime * 2;
             animator.SetFloat("speed", speed);
-            animator.SetBool("Walk", true);
+            //animator.SetBool("Walk", true);
         }
-        if (forwardPressed && runPressed && speed <= 1)
+        if (!forwardPressed&& speed>=0 || !runPressed && speed >= 0.5F && animator.GetBool("Walk") == true)
         {
-            speed += Time.deltaTime * 2;
-            animator.SetFloat("speed", speed);
-            animator.SetBool("Walk", true);
-        }
-        if (!forwardPressed&& speed>=0 || !runPressed && speed >= 0.5F)
-        {
+            Debug.Log("giriyor");
             speed -= Time.deltaTime * 2;
             animator.SetFloat("speed", speed);
         }   
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Anim("Jump");
+            //Anim("Jump");
+            animator.SetTrigger("jump");
         }
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Anim("Attack");
+            animator.SetTrigger("meleeAttack");
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            Anim("Death");
+            animator.SetBool("Walk", false);
+            animator.SetBool("AimWalk", true);
         }
-        if (Input.GetKey(KeyCode.O))
+        if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            Anim("WarriorDeath");
+            animator.SetBool("Walk", true);
+            animator.SetBool("AimWalk", false);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            animator.SetTrigger("death");
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            animator.SetTrigger("death2");
         }
     }
 }
