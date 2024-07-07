@@ -1559,6 +1559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652090905702}
   - component: {fileID: 919132147550613213}
+  - component: {fileID: 919132147550613214}
   m_Layer: 0
   m_Name: Femalebandit
   m_TagString: Untagged
@@ -1576,7 +1577,7 @@ Animator:
   m_GameObject: {fileID: 919132147550613212}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 45da3a508c1e9374a9f68c419bca27a7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8d461aec67eea974fae2381145b9d20e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1587,6 +1588,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &919132147550613214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147550613212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &919132148606209204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,6 +1663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652719717816}
   - component: {fileID: 919132149068613379}
+  - component: {fileID: 919132149068613380}
   m_Layer: 0
   m_Name: bandit2
   m_TagString: Untagged
@@ -1666,7 +1681,7 @@ Animator:
   m_GameObject: {fileID: 919132149068613378}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3ab751286aa1d3249a86b025cc0c2fc4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 81e24a42f0846c34fa8a479459aee8a7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1677,6 +1692,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &919132149068613380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149068613378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &919132149287472492
 GameObject:
   m_ObjectHideFlags: 0

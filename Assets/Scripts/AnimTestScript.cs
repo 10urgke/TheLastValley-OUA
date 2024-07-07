@@ -79,6 +79,9 @@ public class AnimTestScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             animator.SetTrigger("death2");
+        }if (Input.GetKeyDown(KeyCode.G))
+        {
+            animator.SetTrigger("gethit");
         }
     }
 }
