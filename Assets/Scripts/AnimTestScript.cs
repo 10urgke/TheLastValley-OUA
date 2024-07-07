@@ -60,6 +60,7 @@ public class AnimTestScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             animator.SetTrigger("meleeAttack");
+            animator.SetTrigger("Attack1");
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {

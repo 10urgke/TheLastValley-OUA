@@ -1597,6 +1597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653081523726}
   - component: {fileID: 919132148606209205}
+  - component: {fileID: 919132148606209206}
   m_Layer: 0
   m_Name: lowPolyWarior
   m_TagString: Untagged
@@ -1614,7 +1615,7 @@ Animator:
   m_GameObject: {fileID: 919132148606209204}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c065727651fc0a549ad6f21b5eaf4e91, type: 2}
+  m_Controller: {fileID: 9100000, guid: f1cbe6eb67bf1214d8cc594336aa68da, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1625,6 +1626,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &919132148606209206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148606209204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &919132149068613378
 GameObject:
   m_ObjectHideFlags: 0
