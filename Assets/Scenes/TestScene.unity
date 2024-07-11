@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -229,13 +229,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.06418399, z: 0, w: 0.9979381}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 7.36, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,6 +1867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652090905702}
   - component: {fileID: 919132147550613213}
+  - component: {fileID: 919132147550613214}
   m_Layer: 0
   m_Name: Femalebandit
   m_TagString: Untagged
@@ -1884,7 +1885,7 @@ Animator:
   m_GameObject: {fileID: 919132147550613212}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 45da3a508c1e9374a9f68c419bca27a7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8d461aec67eea974fae2381145b9d20e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1895,6 +1896,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &919132147550613214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147550613212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &919132148606209204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,6 +1919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653081523726}
   - component: {fileID: 919132148606209205}
+  - component: {fileID: 919132148606209206}
   m_Layer: 0
   m_Name: lowPolyWarior
   m_TagString: Untagged
@@ -1922,7 +1937,7 @@ Animator:
   m_GameObject: {fileID: 919132148606209204}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c065727651fc0a549ad6f21b5eaf4e91, type: 2}
+  m_Controller: {fileID: 9100000, guid: f1cbe6eb67bf1214d8cc594336aa68da, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1933,23 +1948,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &919132148920512975
-GameObject:
+--- !u!114 &919132148606209206
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 543450652861016949}
-  - component: {fileID: 127904022}
-  m_Layer: 0
-  m_Name: VillagerOldWoman3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_GameObject: {fileID: 919132148606209204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &919132149068613378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,6 +1971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652719717816}
   - component: {fileID: 919132149068613379}
+  - component: {fileID: 919132149068613380}
   m_Layer: 0
   m_Name: bandit2
   m_TagString: Untagged
@@ -1977,7 +1989,7 @@ Animator:
   m_GameObject: {fileID: 919132149068613378}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3ab751286aa1d3249a86b025cc0c2fc4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 81e24a42f0846c34fa8a479459aee8a7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1988,6 +2000,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &919132149068613380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149068613378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &919132149287472492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,6 +2023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653475444694}
   - component: {fileID: 919132149287472493}
+  - component: {fileID: 919132149287472494}
   m_Layer: 0
   m_Name: lowPolyWizard2
   m_TagString: Untagged
@@ -2015,7 +2041,7 @@ Animator:
   m_GameObject: {fileID: 919132149287472492}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4062b18022e3d544ebf3c73b75fc526e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 49491811eaafcb0498c80081661fafde, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2026,21 +2052,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &943432844256932441
-Transform:
+--- !u!114 &919132149287472494
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6782466115381370134}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: 0.00000003027642, z: -0.000000031540818, w: 0.70710665}
-  m_LocalPosition: {x: -0.000000013709067, y: 5.0524096e-10, z: -0.000000018924474}
-  m_LocalScale: {x: 1, y: 1, z: 0.9999997}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 96647948095233771}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 919132149287472492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!4 &946948262400811423
 Transform:
   m_ObjectHideFlags: 0
@@ -2644,6 +2668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2100730471966671331}
   - component: {fileID: 2100730471966671332}
+  - component: {fileID: 2100730471966671333}
   m_Layer: 0
   m_Name: lowPolyArcher 2
   m_TagString: Untagged
@@ -2661,6 +2686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2161261949516512149}
   - component: {fileID: 2161261949516512150}
+  - component: {fileID: 2161261949516512151}
   m_Layer: 0
   m_Name: bandit
   m_TagString: Untagged
@@ -3192,7 +3218,7 @@ Transform:
   m_GameObject: {fileID: 1615837441121966937}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6070378, y: 0, z: 0.061474323}
+  m_LocalPosition: {x: 2.6070378, y: 0, z: 0.177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3213,7 +3239,7 @@ Animator:
   m_GameObject: {fileID: 1615837441121966937}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 23bbb4678e10a0947b2040a9b600643d, type: 2}
+  m_Controller: {fileID: 9100000, guid: bc8e5b84d6c3d6c408226d0de32829c2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3224,6 +3250,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2100730471966671333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615837441121966937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!4 &2129436855914775985
 Transform:
   m_ObjectHideFlags: 0
@@ -3284,7 +3323,7 @@ Animator:
   m_GameObject: {fileID: 1636364562482569519}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 92165d9dbf8ae9f4d9d3cb76e9ab0d5e, type: 2}
+  m_Controller: {fileID: 9100000, guid: bd4b8ab07bf35a241aa26d87250564a7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3295,6 +3334,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2161261949516512151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636364562482569519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!4 &2194633596383354764
 Transform:
   m_ObjectHideFlags: 0
@@ -6002,7 +6054,7 @@ Transform:
   m_GameObject: {fileID: 2854328161701390185}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000000010135884, y: 0.7071067, z: 0.7071068, w: 7.6401224e-10}
-  m_LocalPosition: {x: 7.1711836e-10, y: -1.4901148e-10, z: 0.0000000013946555}
+  m_LocalPosition: {x: 7.1711836e-10, y: -1.4901148e-10, z: 1.338}
   m_LocalScale: {x: 0.009999998, y: 0.009999998, z: 0.010000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
