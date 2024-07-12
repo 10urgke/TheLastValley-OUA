@@ -1,9 +1,9 @@
+﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class AnimTestScript : MonoBehaviour
+public class AnimTestScript : MonoBehaviourPun
 {
     [SerializeField]Animator animator;
     float speed;
@@ -55,12 +55,12 @@ public class AnimTestScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //Anim("Jump");
-            animator.SetTrigger("jump");
+            SetTrigger("jump");
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            animator.SetTrigger("meleeAttack");
-            animator.SetTrigger("Attack1");
+            SetTrigger("meleeAttack");
+            SetTrigger("Attack1");
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
@@ -88,14 +88,26 @@ public class AnimTestScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            animator.SetTrigger("death");
+            SetTrigger("death");
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            animator.SetTrigger("death2");
+            SetTrigger("death2");
         }if (Input.GetKeyDown(KeyCode.G))
         {
-            animator.SetTrigger("gethit");
+            SetTrigger("gethit");
         }
+        
+    }
+    [PunRPC]
+    public void SetTriggerRPC(string triggerName)
+    {
+        animator.SetTrigger(triggerName);
+    }
+    public void SetTrigger(string triggerName)
+    {
+        animator.SetTrigger(triggerName);
+
+        photonView.RPC("SetTriggerRPC", RpcTarget.Others, triggerName);
     }
 }
