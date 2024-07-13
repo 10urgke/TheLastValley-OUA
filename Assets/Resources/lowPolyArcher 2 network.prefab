@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 4323610364706188342}
   - component: {fileID: 3022971600906948736}
   - component: {fileID: 3349037310545297813}
+  - component: {fileID: 7564950664594140478}
   m_Layer: 0
   m_Name: lowPolyArcher 2 network
   m_TagString: Archer
@@ -131,7 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1922910289394838488}
 --- !u!114 &3025251675118175816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,23 +261,36 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 1
     Name: meleeAttack
-  - Type: 1
-    SynchronizeType: 1
-    Name: speed
   - Type: 4
     SynchronizeType: 1
     Name: Walk
   - Type: 4
     SynchronizeType: 1
-    Name: CarryWalk
+    Name: Carry
   - Type: 4
     SynchronizeType: 1
-    Name: AimWalk
+    Name: Second
+  - Type: 1
+    SynchronizeType: 1
+    Name: Speed
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
   - SynchronizeType: 1
     LayerIndex: 1
+--- !u!114 &7564950664594140478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937338293766376760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589f97fbe7b663f4e91fc147eea932ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &946055030090093291
 GameObject:
   m_ObjectHideFlags: 0

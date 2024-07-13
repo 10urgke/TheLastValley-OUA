@@ -3,29 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAnimationManager : MonoBehaviourPun
+public class AnimationManager : MonoBehaviourPun
 {
-    [SerializeField] private Animator animator;
+    //turn protected after tests
+    public Animator animator;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
-    //booleans
-    public void Walk(bool isWalking)
+    public void SetSpeed(float speed)
     {
-        animator.SetBool("Walk", isWalking);
-    }
-    public void Run(bool isRunning)
-    {
-        animator.SetBool("Run", isRunning);
+        animator.SetFloat("Speed", speed);
     }
 
 
-        //triggers/ death,gethit
+    //triggers/ death,gethit,attack..
 
-        [PunRPC]
+    [PunRPC]
     public void SetTriggerRPC(string triggerName)
     {
         animator.SetTrigger(triggerName);

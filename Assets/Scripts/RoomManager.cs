@@ -6,10 +6,19 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject player;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private GameObject enemy;
     void Start()
     {
         Debug.Log("Connecting..");
         PhotonNetwork.ConnectUsingSettings();
+    }
+    //enemy spawn test
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            var _enemy = PhotonNetwork.Instantiate(enemy.name, spawnPoint.position, Quaternion.identity);
+        }
     }
 
     public override void OnConnectedToMaster()

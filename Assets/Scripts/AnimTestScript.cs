@@ -5,109 +5,84 @@ using UnityEngine;
 
 public class AnimTestScript : MonoBehaviourPun
 {
-    [SerializeField]Animator animator;
+    PlayerAnimationManager animManager;
     float speed;
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        
+        animManager = GetComponent<PlayerAnimationManager>();
+
+
     }
     private void Update()
     {
         bool forwardPressed = Input.GetKey(KeyCode.W);
         bool runPressed = Input.GetKey(KeyCode.LeftShift);
         //if(Input.GetKey(KeyCode.W)) 
+        animManager.SetWalkStatus(true);
+        if(Input.GetKey(KeyCode.C)) 
         {
-            Debug.Log("sda");
-            animator.SetBool("walk", true);
-            if(Input.GetKey(KeyCode.C)) 
-            {
-                animator.SetBool("walk", false);
-                animator.SetBool("aimwalk", true);
-            }
-            if (Input.GetKeyUp(KeyCode.C))
-            {
-                animator.SetBool("aimwalk", false);
-            }
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                animator.SetBool("walk", false);
-                animator.SetBool("aimwalk", false);
-                animator.SetBool("run", true);
-            }
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                animator.SetBool("run", false);
-            }
+            animManager.SetWalkStatus(false);
+            animManager.SetSecondStatus(true);
         }
-        if (forwardPressed&&speed<=0.5f || forwardPressed && runPressed && speed <= 1 || forwardPressed && animator.GetBool("Walk")==false && speed <= 1)
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            animManager.SetSecondStatus(false);
+        }
+        if (forwardPressed&&speed<=0.5f || forwardPressed && runPressed && speed <= 1 || forwardPressed && animManager.animator.GetBool("Walk")==false && speed <= 1)
         {
             speed += Time.deltaTime * 2;
-            animator.SetFloat("speed", speed);
-            //animator.SetBool("Walk", true);
+            animManager.SetSpeed(speed);
         }
-        if (!forwardPressed&& speed>=0 || !runPressed && speed >= 0.5F && animator.GetBool("Walk") == true)
+        if (!forwardPressed&& speed>=0 || !runPressed && speed >= 0.5F && animManager.animator.GetBool("Walk") == true)
         {
-            Debug.Log("giriyor");
             speed -= Time.deltaTime * 2;
-            animator.SetFloat("speed", speed);
+            animManager.SetSpeed(speed);
         }   
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //Anim("Jump");
-            SetTrigger("jump");
+            animManager.SetTrigger("jump");
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            SetTrigger("meleeAttack");
-            SetTrigger("Attack1");
+            animManager.SetTrigger("meleeAttack");
+            animManager.SetTrigger("Attack1");
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            animator.SetBool("Walk", false);
-            animator.SetBool("CarryWalk", false);
-            animator.SetBool("AimWalk", true);
+            animManager.SetWalkStatus(false);
+            animManager.SetCarryStatus(false);
+            animManager.SetSecondStatus(true);
         }
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            animator.SetBool("Walk", true);
-            animator.SetBool("CarryWalk", false);
-            animator.SetBool("AimWalk", false);
+            animManager.SetWalkStatus(true);
+            animManager.SetCarryStatus(false);
+            animManager.SetSecondStatus(false);
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            animator.SetBool("Walk", false);
-            animator.SetBool("CarryWalk", true);
-            animator.SetBool("AimWalk", false);
+            animManager.SetWalkStatus(false);
+            animManager.SetCarryStatus(true);
+            animManager.SetSecondStatus(false);
         }
         if (Input.GetKeyUp(KeyCode.C))
         {
-            animator.SetBool("Walk", true);
-            animator.SetBool("CarryWalk", false);
-            animator.SetBool("AimWalk", false);
+            animManager.SetWalkStatus(true);
+            animManager.SetCarryStatus(false);
+            animManager.SetSecondStatus(false);
         }
         if (Input.GetKeyDown(KeyCode.M))
         {
-            SetTrigger("death");
+            animManager.SetTrigger("death");
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            SetTrigger("death2");
+            animManager.SetTrigger("death2");
         }if (Input.GetKeyDown(KeyCode.G))
         {
-            SetTrigger("gethit");
+            animManager.SetTrigger("gethit");
         }
         
-    }
-    [PunRPC]
-    public void SetTriggerRPC(string triggerName)
-    {
-        animator.SetTrigger(triggerName);
-    }
-    public void SetTrigger(string triggerName)
-    {
-        animator.SetTrigger(triggerName);
-
-        photonView.RPC("SetTriggerRPC", RpcTarget.Others, triggerName);
     }
 }
