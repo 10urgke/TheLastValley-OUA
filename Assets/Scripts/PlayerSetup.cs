@@ -14,9 +14,12 @@ public class PlayerSetup : MonoBehaviour
 
     public void IsLocalPlayer(bool isActive)
     {
-            camOne.SetActive(isActive);
-            camTwo.SetActive(isActive);
-            characterController.enabled = isActive;
-            animTest.enabled = isActive;
+        //Deactivated in the editor
+        camOne.SetActive(isActive);
+        camTwo.SetActive(isActive);
+        characterController.enabled = isActive;
+        animTest.enabled = isActive;
+
+        //Activated in the editor
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public class ThirdPersonCharacterController : MonoBehaviour
 {
     public float speed = 5f;
@@ -43,7 +43,7 @@ public class ThirdPersonCharacterController : MonoBehaviour
             {
                 if (Input.GetKeyUp(KeyCode.Mouse1))
                 {
-                    GameObject newArrow = Instantiate(arrow, arrowPosition.transform.position + transform.forward, arrowPosition.transform.rotation * Quaternion.Euler(0, 90, 0));
+                    GameObject newArrow = PhotonNetwork.Instantiate(arrow.name, arrowPosition.transform.position + transform.forward, arrowPosition.transform.rotation * Quaternion.Euler(0, 90, 0));
                     newArrow.GetComponent<Rigidbody>().AddForce(transform.forward * 2000);
                 }
             }

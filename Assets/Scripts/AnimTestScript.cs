@@ -86,7 +86,7 @@ public class AnimTestScript : MonoBehaviourPun
             animator.SetBool("CarryWalk", false);
             animator.SetBool("AimWalk", false);
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             SetTrigger("death");
         }

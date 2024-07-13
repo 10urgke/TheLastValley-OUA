@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf017bf092be921449c079589cba70b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 75143357430569245, guid: ca93aa51c9be06e408a62349a8c25690, type: 3}
+  player: {fileID: 937338293766376760, guid: 17bf2eaedd2945a44b5bb925c2cb5a44, type: 3}
   spawnPoint: {fileID: 592872714}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
