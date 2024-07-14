@@ -17,19 +17,18 @@ public class AnimationManager : MonoBehaviourPun
     {
         animator.SetFloat("Speed", speed);
     }
-
+    public bool IsInState(string stateName)
+    {
+        return animator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+    }
 
     //triggers/ death,gethit,attack..
 
-    [PunRPC]
-    public void SetTriggerRPC(string triggerName)
-    {
-        animator.SetTrigger(triggerName);
-    }
-    public void SetTrigger(string triggerName)
+    public virtual void SetTrigger(string triggerName)
     {
         animator.SetTrigger(triggerName);
 
-        photonView.RPC("SetTriggerRPC", RpcTarget.Others, triggerName);
+        //if(photonView.IsMine)
+        //    photonView.RPC("SetTriggerRPC", RpcTarget.Others, triggerName);
     }
 }
