@@ -103,7 +103,7 @@ public class Enemy : MonoBehaviourPun
         }   
         else
         {
-            if(!animManager.IsInState("GetHit") || animManager.IsInState("Attack"))
+            if(!animManager.IsInState("GetHit") || !animManager.IsInState("Attack"))
                 animManager.SetTrigger("GetHit");                  
         }
             
