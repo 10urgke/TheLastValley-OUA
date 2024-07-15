@@ -44,6 +44,14 @@ MonoBehaviour:
   - UpdateAttackTimerOnNetwork
   - Attack
   - Death
+  - DeathOnNetwork
+  - ChangeState
+  - ChangeStateWalking
+  - ChangeStateIdle
+  - ChangeStateRunning
+  - ChangeStateAttacking
+  - ChangeStateDying
+  - ChangeStateRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

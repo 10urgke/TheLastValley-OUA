@@ -9,12 +9,10 @@ public class Enemy : MonoBehaviourPun
 {
     [SerializeField] private float health;
     [SerializeField] private float damage;  
-    [SerializeField] private Slider healthBarSlider;
+    public Slider healthBarSlider;
     public Slider attackCooldownBarSlider;
     public float attackCooldown;
     public float attackTimer;
-    //[SerializeField] private float networkAttackSliderUpdateTime = 0.2f;
-    //public float sliderUpdateTime;
     public float speed = 3;
     public AnimationManager animManager;
     public NavMeshAgent navMeshAgent;
@@ -34,20 +32,14 @@ public class Enemy : MonoBehaviourPun
         attackCooldownBarSlider.value = attackTimer;
         navMeshAgent = GetComponent<NavMeshAgent>();
         ChangeState(new IdleState());
-        //sliderUpdateTime = 0;
-        Debug.Log("enemy created");
+        //Debug.Log("enemy created");
     }
     private void Update()
     {
         currentState.Execute();
 
-        //if(sliderUpdateTime > networkAttackSliderUpdateTime)
-        //{
-        //    sliderUpdateTime = 0;
-        //    GetComponent<PhotonView>().RPC("UpdateAttackTimerOnNetwork", RpcTarget.All);
-        //}
         //test for taking damage over the network
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && photonView.IsMine)
         {
             GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, 10f);
         }
@@ -56,27 +48,62 @@ public class Enemy : MonoBehaviourPun
 
             
     }
+    #region states
     public void ChangeState(IEnemyState newState)
     {
+        if (currentState != null)
+            currentState.Exit();
         currentState = newState;
         currentState.Enter(this);
     }
-    //for invoke in idlestate
-    public void ChangeToWalkingState()
+    [PunRPC]
+    public void ChangeStateRPC(string stateName)
     {
-        ChangeState(new WalkingState());
+        switch(stateName)
+        {
+            case "IdleState":
+                ChangeState(new IdleState());
+                break;
+            case "WalkingState":
+                ChangeState(new WalkingState());
+                break;
+            case "RunningState":
+                ChangeState(new RunningState());
+                break;
+            case "AttackingState":
+                ChangeState(new AttackingState());
+                break;
+            case "DyingState":
+                ChangeState(new DyingState());
+                break;
+            default:
+                Debug.LogError("Check Name");
+                break;
+        }
+            
     }
+    public IEnumerator ChangeStateAfterTime(string stateName, float time)
+    {
+        yield return new WaitForSeconds(time);
+        if (photonView.IsMine)
+            GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, stateName);
+    }
+    
+    #endregion
     [PunRPC]
     public void TakeDamage(float amount)
     {
         Debug.Log("Take damage func");
         health -= amount;
         healthBarSlider.value = health;
-        if(health <= 0 )
-            ChangeState(new DyingState());
+        if(health <= 0)
+        {
+            if (photonView.IsMine)
+                GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "DyingState");
+        }   
         else
         {
-            if(!animManager.IsInState("GetHit"))
+            if(!animManager.IsInState("GetHit") || animManager.IsInState("Attack"))
                 animManager.SetTrigger("GetHit");                  
         }
             
@@ -88,24 +115,36 @@ public class Enemy : MonoBehaviourPun
         attackCooldownBarSlider.value = attackTimer;
         Debug.Log("update attack slider func");
     }
-    [PunRPC]
     public void Death()
     {
         animManager.SetTrigger("Death");
-        Debug.Log("Death func");
+        //Debug.Log("Death func");
         //pool for different areas
         Destroy(gameObject, 5f);
+        //if (photonView.IsMine)
+        //    StartCoroutine(DeathAfterSecsOnNetwork(5f));
+    }
+
+    //for networked instantiated objects
+    public IEnumerator DeathAfterSecsOnNetwork(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        GetComponent<PhotonView>().RPC("DeathOnNetwork", RpcTarget.All);
+    }
+    [PunRPC]
+    public void DeathOnNetwork()
+    {
+        PhotonNetwork.Destroy(gameObject);
     }
     [PunRPC]
     public void Attack()
     {
         animManager.SetTrigger("Attack");
-        Debug.Log("Attack func");
+        //Debug.Log("Attack to " + target.name);
         if (photonView.IsMine)
             GetComponent<PhotonView>().RPC("UpdateAttackTimerOnNetwork", RpcTarget.Others);
         attackTimer = 0;
         attackCooldownBarSlider.value = attackTimer;
-        //Debug.Log("attack");
     }
     
     private void OnTriggerEnter(Collider other)
@@ -129,12 +168,14 @@ public class Enemy : MonoBehaviourPun
     public void SetTarget(GameObject targetObj)
     {
         target = targetObj;
-        ChangeState(new RunningState());
+        if (photonView.IsMine)
+            GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "RunningState");
     }
     public void LeaveTarget()
     {
         target = null;
-        ChangeState(new IdleState());
+        if (photonView.IsMine)
+            GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "IdleState");
     }
     public void SetDestination(GameObject target)
     {

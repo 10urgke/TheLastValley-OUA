@@ -1,11 +1,8 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationManager : MonoBehaviourPun
 {
-    //turn protected after tests
     public Animator animator;
 
     private void Awake()

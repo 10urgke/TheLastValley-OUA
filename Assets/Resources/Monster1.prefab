@@ -1517,6 +1517,7 @@ MonoBehaviour:
   animManager: {fileID: 0}
   navMeshAgent: {fileID: 0}
   target: {fileID: 0}
+  attackRange: 1
   destinations: []
 --- !u!195 &7482345765793860238
 NavMeshAgent:
