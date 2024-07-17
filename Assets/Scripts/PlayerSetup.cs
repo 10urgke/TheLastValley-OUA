@@ -10,6 +10,7 @@ public class PlayerSetup : MonoBehaviour
     public GameObject camTwo;
     public ThirdPersonCharacterController characterController;
     public AnimTestScript animTest;
+    public GameObject canvasForOthers;
 
 
     public void IsLocalPlayer(bool isActive)
@@ -21,5 +22,6 @@ public class PlayerSetup : MonoBehaviour
         animTest.enabled = isActive;
 
         //Activated in the editor
-    }
+        canvasForOthers.SetActive(!isActive);
+}
 }
