@@ -177,28 +177,35 @@ public class Enemy : MonoBehaviourPun
         if (photonView.IsMine)
             GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "IdleState");
     }
+    
     public void SetDestination(GameObject target)
     {
-        navMeshAgent.SetDestination(target.transform.position);
+        //For fix navmesh glich only the master client will set destination 
+        if (photonView.IsMine)
+            navMeshAgent.SetDestination(target.transform.position);
     }
     public void SetDestination()
     {
-        if (destinations.Count > 0)
+        if (photonView.IsMine)
         {
-            navMeshAgent.SetDestination(destinations[Random.Range(0, destinations.Count)].position);
-        }
-        else
-        {
-
-            //might will be spawned in a game object and take its destination locs?
-            //test for instantiate
-            var dests = GameObject.Find("EnemyDest");
-            foreach (Transform dest in dests.GetComponentInChildren<Transform>())
+            if (destinations.Count > 0)
             {
-                destinations.Add(dest);
+                navMeshAgent.SetDestination(destinations[Random.Range(0, destinations.Count)].position);
             }
-            navMeshAgent.SetDestination(destinations[Random.Range(0, destinations.Count)].position);
+            else
+            {
+
+                //might will be spawned in a game object and take its destination locs?
+                //test for instantiate
+                var dests = GameObject.Find("EnemyDest");
+                foreach (Transform dest in dests.GetComponentInChildren<Transform>())
+                {
+                    destinations.Add(dest);
+                }
+                navMeshAgent.SetDestination(destinations[Random.Range(0, destinations.Count)].position);
+            }
         }
+            
     }
 
 }

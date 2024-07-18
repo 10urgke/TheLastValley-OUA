@@ -4,54 +4,46 @@ using UnityEngine;
 using Photon.Pun;
 public class ThirdPersonCharacterController : MonoBehaviour
 {
+    [Header("Movement Settings")]
     public float speed = 5f;
+    public float sprintSpeed = 10f;
     public float turnSmoothTime = 0.1f;
     public float gravity = -9.81f;
-    public Transform cameraTransform;
 
+    [Header("Camera Settings")]
+    public Transform cameraTransform;
+    public float mouseSensitivity = 1f;
+
+    [Header("Animation Settings")]
+    protected PlayerAnimationManager animationManager;
+    [SerializeField] private float animationWalkSpeed = 0f;
+
+    [Space]
     private CharacterController characterController;
     private Vector3 velocity;
     private float turnSmoothVelocity;
+    public bool sprintBlock;
+    public bool isCarrying;
 
-    public GameObject arrow;
-    public GameObject arrowPosition;
-
-    // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
+        animationManager = GetComponent<PlayerAnimationManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        Move();
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            speed = 10f;
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && characterController.isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(-2f * gravity);
-        }
-
-        if (arrow != null && arrowPosition != null)
-        {
-            if(gameObject.tag == "Archer")
-            {
-                if (Input.GetKeyUp(KeyCode.Mouse1))
-                {
-                    GameObject newArrow = PhotonNetwork.Instantiate(arrow.name, arrowPosition.transform.position + transform.forward, arrowPosition.transform.rotation * Quaternion.Euler(0, 90, 0));
-                    newArrow.GetComponent<Rigidbody>().AddForce(transform.forward * 2000);
-                }
-            }
-        }
-
+        HandleMovement();
+        HandleJump();
     }
 
-    void Move()
+    private void LateUpdate()
+    {
+        HandleCameraRotation();
+    }
+
+    private void HandleMovement()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -64,30 +56,64 @@ public class ThirdPersonCharacterController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, angle, 0);
 
             Vector3 moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
-            characterController.Move(moveDirection * speed * Time.deltaTime);
-        }
 
-        // Apply gravity
-        if (characterController.isGrounded)
-        {
-            velocity.y = -2f;
+            float currentSpeed = speed;
+            if (sprintBlock)
+                currentSpeed *= .5f;
+
+            if (Input.GetAxis("Sprint") > 0 && !sprintBlock)
+            {
+                currentSpeed = sprintSpeed;
+                //smoothing movement animation
+                if (animationWalkSpeed < 1f)
+                    animationWalkSpeed += Time.deltaTime;
+                animationManager.SetSpeed(animationWalkSpeed);
+
+            }
+            else
+            {
+                if (animationWalkSpeed > 0.52f)
+                    animationWalkSpeed -= Time.deltaTime;
+                else if (animationWalkSpeed < 0.48f)
+                    animationWalkSpeed += Time.deltaTime;
+                animationManager.SetSpeed(animationWalkSpeed);
+            }
+
+            characterController.Move(moveDirection * currentSpeed * Time.deltaTime);
         }
         else
         {
-            velocity.y += gravity * Time.deltaTime;
+            if (animationWalkSpeed > 0f)
+            {
+                animationWalkSpeed -= Time.deltaTime;
+                animationManager.SetSpeed(animationWalkSpeed);
+            }
+
         }
+
+        if (characterController.isGrounded)
+            velocity.y = -2f;
+        else
+            velocity.y += gravity * Time.deltaTime;
 
         characterController.Move(velocity * Time.deltaTime);
     }
 
-    private void LateUpdate()
+    private void HandleJump()
     {
-        CameraRotation();
+        if (animationManager.animator.GetBool("Carry") || animationManager.animator.GetBool("Second"))
+            return;
+        if (Input.GetButtonDown("Jump") && characterController.isGrounded)
+        {
+            //make jump
+            //velocity.y += Mathf.Sqrt(-2f * gravity);
+            animationManager.SetTrigger("Jump");
+        }
     }
 
-    void CameraRotation()
+    private void HandleCameraRotation()
     {
-        float mouseX = Input.GetAxis("Mouse X") * turnSmoothTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         cameraTransform.Rotate(Vector3.up, mouseX);
     }
 }

@@ -134,13 +134,12 @@ GameObject:
   - component: {fileID: 7499604887176603608}
   - component: {fileID: 1922910289394838488}
   - component: {fileID: 2963824032356918170}
-  - component: {fileID: 5137165998764170776}
-  - component: {fileID: 3025251675118175816}
+  - component: {fileID: 6335050822525037647}
   - component: {fileID: 3117511878605964967}
+  - component: {fileID: 7564950664594140478}
   - component: {fileID: 4323610364706188342}
   - component: {fileID: 3022971600906948736}
   - component: {fileID: 3349037310545297813}
-  - component: {fileID: 7564950664594140478}
   m_Layer: 0
   m_Name: lowPolyArcher 2 network
   m_TagString: Archer
@@ -157,7 +156,7 @@ Transform:
   m_GameObject: {fileID: 937338293766376760}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.530392, y: 0, z: -5.295798}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -208,10 +207,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camOne: {fileID: 4199241248955251776}
   camTwo: {fileID: 5494493940332321552}
-  characterController: {fileID: 3025251675118175816}
-  animTest: {fileID: 5137165998764170776}
+  characterController: {fileID: 6335050822525037647}
   canvasForOthers: {fileID: 4051055719518081895}
---- !u!114 &5137165998764170776
+--- !u!114 &6335050822525037647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,27 +218,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 937338293766376760}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3025251675118175816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937338293766376760}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2841a209805fe7143831740a2129ed14, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fa57ecd83873f14d926d3ea60721d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  sprintSpeed: 10
   turnSmoothTime: 0.1
   gravity: -9.81
   cameraTransform: {fileID: 1226564731646450886}
-  arrow: {fileID: 607164480234708134, guid: b6db62f2aa2bb92439f6bd219b63106c, type: 3}
-  arrowPosition: {fileID: 7739399196725638484}
+  mouseSensitivity: 1
+  animationWalkSpeed: 0
+  sprintBlock: 0
+  isCarrying: 0
+  arrowPrefab: {fileID: 607164480234708134, guid: b6db62f2aa2bb92439f6bd219b63106c,
+    type: 3}
+  arrowSpawnPoint: {fileID: 318276169721642749}
+  arrowForce: 2000
+  waitTimeForShot: 0.9
+  waitTimeForNextAttackAfterShot: 0.9
+  freeLookCam: {fileID: 0}
+  freeLookZoom: 20
 --- !u!143 &3117511878605964967
 CharacterController:
   m_ObjectHideFlags: 0
@@ -267,6 +264,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.11, z: 0}
+--- !u!114 &7564950664594140478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937338293766376760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589f97fbe7b663f4e91fc147eea932ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!114 &4323610364706188342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,13 +334,7 @@ MonoBehaviour:
   m_SynchronizeParameters:
   - Type: 9
     SynchronizeType: 1
-    Name: fullShot
-  - Type: 9
-    SynchronizeType: 1
     Name: drawArrow
-  - Type: 9
-    SynchronizeType: 1
-    Name: recoil
   - Type: 9
     SynchronizeType: 1
     Name: gethit
@@ -343,9 +347,6 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 1
     Name: death2
-  - Type: 9
-    SynchronizeType: 1
-    Name: jump
   - Type: 9
     SynchronizeType: 1
     Name: jump2
@@ -364,24 +365,20 @@ MonoBehaviour:
   - Type: 1
     SynchronizeType: 1
     Name: Speed
+  - Type: 9
+    SynchronizeType: 1
+    Name: Jump
+  - Type: 9
+    SynchronizeType: 0
+    Name: FullShot
+  - Type: 9
+    SynchronizeType: 0
+    Name: Recoil
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
   - SynchronizeType: 1
     LayerIndex: 1
---- !u!114 &7564950664594140478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937338293766376760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 589f97fbe7b663f4e91fc147eea932ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!1 &946055030090093291
 GameObject:
   m_ObjectHideFlags: 0

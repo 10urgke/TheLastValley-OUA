@@ -249,8 +249,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656829870600116716}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.02817983, y: 0.040049724, z: -0.0011299507, w: 0.9987996}
-  m_LocalPosition: {x: -1.2918822, y: 2.5, z: 5.133847}
+  m_LocalRotation: {x: -0.18992482, y: 0.027584461, z: 0.005338284, w: 0.9813966}
+  m_LocalPosition: {x: 0.09199642, y: 1.22, z: -2.8084936}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2065,7 +2065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93bc6b18ba8ebb49b02d2013597871e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 5206860818854932649}
 --- !u!114 &3813389578521601426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2079,9 +2078,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  sprintSpeed: 10
   turnSmoothTime: 0.1
   gravity: -9.81
   cameraTransform: {fileID: 5504904830014401332}
+  mouseSensitivity: 1
+  animationWalkSpeed: 0
+  sprintBlock: 0
+  isCarrying: 0
 --- !u!143 &3884871437795059195
 CharacterController:
   m_ObjectHideFlags: 0
