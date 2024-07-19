@@ -87,6 +87,8 @@ public class WizardController : ThirdPersonCharacterController
         GameObject magic = pooler.GetPooledObject(magicPrefab);
         magic.transform.position = magicSpawnPoint.position + transform.forward;
         magic.transform.rotation = magicSpawnPoint.rotation * Quaternion.Euler(0, 90, 0);
+        magic.GetComponent<MagicBolt>().damage = magicDamage;
+        magic.GetComponent<MagicBolt>().healAmount = magicHeal;
         magic.SetActive(true);
         magic.GetComponent<Rigidbody>().velocity = Vector3.zero;
         magic.GetComponent<Rigidbody>().AddForce(transform.forward * magicForce);
