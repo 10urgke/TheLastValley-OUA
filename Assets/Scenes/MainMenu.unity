@@ -12750,7 +12750,7 @@ MonoBehaviour:
     type: 3}
   archerPrefab: {fileID: 937338293766376760, guid: 17bf2eaedd2945a44b5bb925c2cb5a44,
     type: 3}
-  wizardPrefab: {fileID: 6086838582877289559, guid: d4da9c8389a1e6a4a898dff78992a4c8,
+  wizardPrefab: {fileID: 837115358456055144, guid: 4b3aacf08f71abb44891485ae2c934f4,
     type: 3}
   roomNameInput: {fileID: 924523291}
   inputFx: {fileID: 645762445}

@@ -9,6 +9,9 @@ public class ThirdPersonCharacterController : MonoBehaviour
     public float sprintSpeed = 10f;
     public float turnSmoothTime = 0.1f;
     public float gravity = -9.81f;
+    public float jumpDuration = .5f;
+    public float jumpDelay = .5f;
+    public float jumpHeight = 2.0f;
 
     [Header("Camera Settings")]
     public Transform cameraTransform;
@@ -105,9 +108,10 @@ public class ThirdPersonCharacterController : MonoBehaviour
             return;
         if (Input.GetButtonDown("Jump") && characterController.isGrounded)
         {
-            //make jump
-            //velocity.y += Mathf.Sqrt(-2f * gravity);
             animationManager.SetTrigger("Jump");
+            StartCoroutine(JumpCoroutine());
+            //velocity.y += Mathf.Sqrt(-2f * gravity);
+            
         }
     }
 
@@ -115,5 +119,18 @@ public class ThirdPersonCharacterController : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         cameraTransform.Rotate(Vector3.up, mouseX);
+    }
+    private IEnumerator JumpCoroutine()
+    {
+        yield return new WaitForSeconds(jumpDelay);
+        float elapsedTime = 0f;
+        float initialY = transform.position.y;
+        while (elapsedTime < jumpDuration)
+        {
+            float newY = Mathf.Lerp(initialY, initialY + jumpHeight, elapsedTime / jumpDuration);
+            characterController.Move(new Vector3(0, newY - transform.position.y, 0)); 
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 }

@@ -1780,6 +1780,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: Carry
+  - Type: 9
+    SynchronizeType: 0
+    Name: Jump
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0

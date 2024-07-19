@@ -113,6 +113,9 @@ MonoBehaviour:
   sprintSpeed: 10
   turnSmoothTime: 0.1
   gravity: -9.81
+  jumpDuration: 0.5
+  jumpDelay: 0.5
+  jumpHeight: 2
   cameraTransform: {fileID: 4483423285435130150}
   mouseSensitivity: 1
   animationWalkSpeed: 0
@@ -209,9 +212,6 @@ MonoBehaviour:
     Name: Attack2
   - Type: 9
     SynchronizeType: 1
-    Name: gethit
-  - Type: 9
-    SynchronizeType: 1
     Name: gethit2
   - Type: 9
     SynchronizeType: 1
@@ -237,6 +237,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: Second
+  - Type: 9
+    SynchronizeType: 0
+    Name: GetHit
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0

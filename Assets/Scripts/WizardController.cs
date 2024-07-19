@@ -1,6 +1,7 @@
 ﻿using Cinemachine;
 using Photon.Pun;
 using System.Collections;
+using System.Reflection;
 using UnityEngine;
 
 public class WizardController : ThirdPersonCharacterController
@@ -21,46 +22,24 @@ public class WizardController : ThirdPersonCharacterController
     protected override void Update()
     {
         base.Update();
-        HandleSecondStatus();
         HandleCarryStatus();
         if (Input.GetButtonDown("Fire1") && !isShooting)
         {
             if (animationManager.animator.GetBool("Carry"))
                 return;
-            else if (animationManager.animator.GetBool("Second"))
-            {
-                animationManager.SetTrigger("Recoil");
-                isShooting = true;
-                StartCoroutine(CastHealCoroutine());
-            }
-            else
-            {
-                animationManager.SetTrigger("FullShot");
-                isShooting = true;
-                StartCoroutine(RegularAttackCoroutine());
-            }        
-        }
-    }
-    private void HandleSecondStatus()
-    {
-        if (animationManager.animator.GetBool("Carry"))
-            return;
-        if (Input.GetButtonDown("Fire2"))
-        {
-            sprintBlock = true;
-            animationManager.SetWalkStatus(false);
-            animationManager.SetSecondStatus(true);
-            animationManager.SetCarryStatus(false);
 
+            animationManager.SetTrigger("Attack");
+            isShooting = true;
+            StartCoroutine(RegularAttackCoroutine());      
         }
-        if (Input.GetButtonUp("Fire2"))
+        if (Input.GetButtonDown("Fire2") && !isShooting)
         {
-            animationManager.SetWalkStatus(true);
-            animationManager.SetSecondStatus(false);
-            animationManager.SetCarryStatus(false);
-            sprintBlock = false;
+            animationManager.SetTrigger("Cast");
+            isShooting = true;
+            StartCoroutine(CastHealCoroutine());
         }
     }
+
     private void HandleCarryStatus()
     {
         if (animationManager.animator.GetBool("Second"))
@@ -99,8 +78,8 @@ public class WizardController : ThirdPersonCharacterController
     private void SpawnMagic()
     {
         //pool
-        GameObject newArrow = PhotonNetwork.Instantiate(magicPrefab.name, magicSpawnPoint.position + transform.forward, magicSpawnPoint.rotation * Quaternion.Euler(0, 90, 0));
-        newArrow.GetComponent<Rigidbody>().AddForce(transform.forward * magicForce);
+        GameObject magicMissile = PhotonNetwork.Instantiate(magicPrefab.name, magicSpawnPoint.position + transform.forward, magicSpawnPoint.rotation * Quaternion.Euler(0, 90, 0));
+        magicMissile.GetComponent<Rigidbody>().AddForce(transform.forward * magicForce);
     }
     public void Heal()
     {
