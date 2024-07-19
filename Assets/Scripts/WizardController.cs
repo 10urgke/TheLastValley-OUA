@@ -8,16 +8,22 @@ public class WizardController : ThirdPersonCharacterController
 {
     [Header("Wizard Settings")]
     public GameObject magicPrefab;
+    public int projectilePoolSize = 10;
     public Transform magicSpawnPoint;
     public float magicForce = 2000f;
+    public float magicDamage = 10f;
+    public float magicHeal = 10f;
     public float waitTimeForShot = 0.9f;
     public float waitTimeForNextAttackAfterShot = 0.9f;
+    public ObjectPooler pooler;
 
     private bool isShooting;
 
     protected override void Start()
     {
         base.Start();
+        pooler = GetComponent<ObjectPooler>();
+        pooler.MakePool(magicPrefab, projectilePoolSize);
     }
     protected override void Update()
     {
@@ -78,8 +84,15 @@ public class WizardController : ThirdPersonCharacterController
     private void SpawnMagic()
     {
         //pool
-        GameObject magicMissile = PhotonNetwork.Instantiate(magicPrefab.name, magicSpawnPoint.position + transform.forward, magicSpawnPoint.rotation * Quaternion.Euler(0, 90, 0));
-        magicMissile.GetComponent<Rigidbody>().AddForce(transform.forward * magicForce);
+        GameObject magic = pooler.GetPooledObject(magicPrefab);
+        magic.transform.position = magicSpawnPoint.position + transform.forward;
+        magic.transform.rotation = magicSpawnPoint.rotation * Quaternion.Euler(0, 90, 0);
+        magic.SetActive(true);
+        magic.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        magic.GetComponent<Rigidbody>().AddForce(transform.forward * magicForce);
+
+        //GameObject magicMissile = PhotonNetwork.Instantiate(magicPrefab.name, magicSpawnPoint.position + transform.forward, magicSpawnPoint.rotation * Quaternion.Euler(0, 90, 0));
+        //magicMissile.GetComponent<Rigidbody>().AddForce(transform.forward * magicForce);
     }
     public void Heal()
     {

@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 7499604887176603608}
   - component: {fileID: 1922910289394838488}
   - component: {fileID: 2963824032356918170}
+  - component: {fileID: -4838871335022336665}
   - component: {fileID: 6335050822525037647}
   - component: {fileID: 3117511878605964967}
   - component: {fileID: 7564950664594140478}
@@ -142,7 +143,7 @@ GameObject:
   - component: {fileID: 3349037310545297813}
   m_Layer: 0
   m_Name: lowPolyArcher 2 network
-  m_TagString: Archer
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,6 +210,19 @@ MonoBehaviour:
   camTwo: {fileID: 5494493940332321552}
   characterController: {fileID: 6335050822525037647}
   canvasForOthers: {fileID: 4051055719518081895}
+--- !u!114 &-4838871335022336665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937338293766376760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d988bd764f3459489c4c06863f8e05e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: []
 --- !u!114 &6335050822525037647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,10 +251,13 @@ MonoBehaviour:
     type: 3}
   arrowSpawnPoint: {fileID: 318276169721642749}
   arrowForce: 2000
+  arrowDamage: 10
+  projectilePoolSize: 10
   waitTimeForShot: 0.9
   waitTimeForNextAttackAfterShot: 0.9
   freeLookCam: {fileID: 0}
   freeLookZoom: 20
+  pooler: {fileID: 0}
 --- !u!143 &3117511878605964967
 CharacterController:
   m_ObjectHideFlags: 0

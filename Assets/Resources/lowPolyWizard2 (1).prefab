@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 8184011826190405498}
   - component: {fileID: 6403299588093438275}
   - component: {fileID: 8130309232668737364}
+  - component: {fileID: -3761603462702787955}
   - component: {fileID: 1124064573402936967}
   - component: {fileID: 8610915561664837999}
   - component: {fileID: 8025812138528134843}
@@ -336,7 +337,7 @@ GameObject:
   - component: {fileID: 7308096156721662372}
   m_Layer: 0
   m_Name: lowPolyWizard2 (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
---- !u!114 &1124064573402936967
+--- !u!114 &-3761603462702787955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -422,6 +423,19 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837115358456055144}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d988bd764f3459489c4c06863f8e05e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: []
+--- !u!114 &1124064573402936967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837115358456055144}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 993d06d8dd3dce740808b47dd65dc2a3, type: 3}
   m_Name: 
@@ -440,10 +454,14 @@ MonoBehaviour:
   isCarrying: 0
   magicPrefab: {fileID: 607164480234708134, guid: b6db62f2aa2bb92439f6bd219b63106c,
     type: 3}
+  projectilePoolSize: 10
   magicSpawnPoint: {fileID: 3683724242635246041}
   magicForce: 2000
-  waitTimeForShot: 0.9
-  waitTimeForNextAttackAfterShot: 0.9
+  magicDamage: 10
+  magicHeal: 10
+  waitTimeForShot: 1.3
+  waitTimeForNextAttackAfterShot: 1
+  pooler: {fileID: 0}
 --- !u!143 &8610915561664837999
 CharacterController:
   m_ObjectHideFlags: 0

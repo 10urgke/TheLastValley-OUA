@@ -9,10 +9,13 @@ public class ArcherController : ThirdPersonCharacterController
     public GameObject arrowPrefab;
     public Transform arrowSpawnPoint;
     public float arrowForce = 2000f;
+    public float arrowDamage = 10f;
+    public int projectilePoolSize = 10;
     public float waitTimeForShot = 0.9f;
     public float waitTimeForNextAttackAfterShot = 0.9f;
     public CinemachineFreeLook freeLookCam;
     public float freeLookZoom = 20;
+    public ObjectPooler pooler;
 
     private bool isShooting;
 
@@ -20,6 +23,8 @@ public class ArcherController : ThirdPersonCharacterController
     {
         base.Start();
         freeLookCam = GetComponent<PlayerSetup>().camTwo.GetComponent<CinemachineFreeLook>();
+        pooler = GetComponent<ObjectPooler>();
+        pooler.MakePool(arrowPrefab, projectilePoolSize);
     }
     protected override void Update()
     {
@@ -104,7 +109,16 @@ public class ArcherController : ThirdPersonCharacterController
     private void ShootArrow()
     {
         //pool
-        GameObject newArrow = PhotonNetwork.Instantiate(arrowPrefab.name, arrowSpawnPoint.position + transform.forward, arrowSpawnPoint.rotation * Quaternion.Euler(0, 90, 0));
-        newArrow.GetComponent<Rigidbody>().AddForce(transform.forward * arrowForce);
+        GameObject arrow = pooler.GetPooledObject(arrowPrefab);
+        arrow.transform.position = arrowSpawnPoint.position + transform.forward;
+        arrow.transform.rotation = arrowSpawnPoint.rotation * Quaternion.Euler(0, 90, 0);
+        arrow.GetComponent<Arrow>().damage = arrowDamage;
+        arrow.SetActive(true);
+        arrow.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        arrow.GetComponent<Rigidbody>().AddForce(transform.forward * arrowForce);
+
+
+        //GameObject newArrow = PhotonNetwork.Instantiate(arrowPrefab.name, arrowSpawnPoint.position + transform.forward, arrowSpawnPoint.rotation * Quaternion.Euler(0, 90, 0));
+        //newArrow.GetComponent<Rigidbody>().AddForce(transform.forward * arrowForce);
     }
 }
