@@ -20,7 +20,6 @@ public class LookAtCamera : MonoBehaviour
             if (cam != null)
             {
                 camTransform = cam.transform;
-                Debug.Log("Kamera bulundu");
             }
         }
     }
