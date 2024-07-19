@@ -722,7 +722,7 @@ Animator:
   m_GameObject: {fileID: 926839012}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed96f9a48215efe459411d972954d5ff, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6e1af7def7de9a54a8461c83b452930a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2359,6 +2359,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 781274738423889939, guid: 19a8c5f6b3ab8c3479ce9c0530c70b7f,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 371925cc1267e70459a0b07db06e6de0, type: 2}
     - target: {fileID: 6010501716042751338, guid: 19a8c5f6b3ab8c3479ce9c0530c70b7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8534,8 +8539,8 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1516342468}
-  - {fileID: 1853831550077881066}
   - {fileID: 783406538}
+  - {fileID: 1853831550077881066}
   - {fileID: 958707193}
   - {fileID: 543450653081523726}
   - {fileID: 2100730471966671331}
