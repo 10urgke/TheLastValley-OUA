@@ -13,8 +13,9 @@ public class WizardController : ThirdPersonCharacterController
     public float magicForce = 2000f;
     public float magicDamage = 10f;
     public float magicHeal = 10f;
-    public float waitTimeForShot = 0.9f;
-    public float waitTimeForNextAttackAfterShot = 0.9f;
+    public float waitTimeForShoot = 0.9f;
+    public float waitTimeForNextAttackAfterShoot = 0.9f;
+    public ParticleSystem attackFx;
     public ObjectPooler pooler;
 
     private bool isShooting;
@@ -48,42 +49,38 @@ public class WizardController : ThirdPersonCharacterController
 
     private void HandleCarryStatus()
     {
-        if (animationManager.animator.GetBool("Second"))
-            return;
         if (isCarrying)
         {
             sprintBlock = true;
             animationManager.SetWalkStatus(false);
-            animationManager.SetSecondStatus(false);
             animationManager.SetCarryStatus(true);
 
         }
         else if (!isCarrying)
         {
             animationManager.SetWalkStatus(true);
-            animationManager.SetSecondStatus(false);
             animationManager.SetCarryStatus(false);
             sprintBlock = false;
         }
     }
 
     private IEnumerator RegularAttackCoroutine()
-    {
-        yield return new WaitForSeconds(waitTimeForShot);
+    {          
+        yield return new WaitForSeconds(waitTimeForShoot);
         SpawnMagic();
-        yield return new WaitForSeconds(waitTimeForNextAttackAfterShot);
+        yield return new WaitForSeconds(waitTimeForNextAttackAfterShoot);
         isShooting = false;
     }
     private IEnumerator CastHealCoroutine()
     {
         Heal();
-        yield return new WaitForSeconds(waitTimeForNextAttackAfterShot);
+        yield return new WaitForSeconds(waitTimeForNextAttackAfterShoot);
         isShooting = false;
     }
 
     private void SpawnMagic()
     {
-        //pool
+        attackFx.Play();
         GameObject magic = pooler.GetPooledObject(magicPrefab);
         magic.transform.position = magicSpawnPoint.position + transform.forward;
         magic.transform.rotation = magicSpawnPoint.rotation * Quaternion.Euler(0, 90, 0);

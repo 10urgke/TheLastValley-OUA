@@ -11,8 +11,8 @@ public class ArcherController : ThirdPersonCharacterController
     public float arrowForce = 2000f;
     public float arrowDamage = 10f;
     public int projectilePoolSize = 10;
-    public float waitTimeForShot = 0.9f;
-    public float waitTimeForNextAttackAfterShot = 0.9f;
+    public float waitTimeForShoot = 0.9f;
+    public float waitTimeForNextAttackAfterShoot = 0.9f;
     public CinemachineFreeLook freeLookCam;
     public float freeLookZoom = 20;
     public ObjectPooler pooler;
@@ -39,13 +39,13 @@ public class ArcherController : ThirdPersonCharacterController
             {
                 animationManager.SetTrigger("Recoil");
                 isShooting = true;
-                StartCoroutine(SecondShotCoroutine());
+                StartCoroutine(SecondShootCoroutine());
             }
             else
             {
                 animationManager.SetTrigger("FullShot");
                 isShooting = true;
-                StartCoroutine(RegularShotCoroutine());
+                StartCoroutine(RegularShootCoroutine());
             }        
         }
     }
@@ -92,17 +92,17 @@ public class ArcherController : ThirdPersonCharacterController
         }
     }
 
-    private IEnumerator RegularShotCoroutine()
+    private IEnumerator RegularShootCoroutine()
     {
-        yield return new WaitForSeconds(waitTimeForShot);
+        yield return new WaitForSeconds(waitTimeForShoot);
         ShootArrow();
-        yield return new WaitForSeconds(waitTimeForNextAttackAfterShot);
+        yield return new WaitForSeconds(waitTimeForNextAttackAfterShoot);
         isShooting = false;
     }
-    private IEnumerator SecondShotCoroutine()
+    private IEnumerator SecondShootCoroutine()
     {
         ShootArrow();
-        yield return new WaitForSeconds(waitTimeForNextAttackAfterShot);
+        yield return new WaitForSeconds(waitTimeForNextAttackAfterShoot);
         isShooting = false;
     }
 

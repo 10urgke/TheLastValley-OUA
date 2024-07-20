@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviourPun
     [PunRPC]
     public void TakeDamage(float amount)
     {
-        Debug.Log("Take damage func");
+        //Debug.Log("Take damage func");
         health -= amount;
         healthBarSlider.value = health;
         if(health <= 0)
@@ -163,6 +163,19 @@ public class Enemy : MonoBehaviourPun
         if(target != null &&  other.gameObject == target)
         {
             LeaveTarget();
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent<Arrow>(out Arrow arrowProjectile))
+        {
+            if(photonView.IsMine)
+                GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, arrowProjectile.damage);
+        }
+        else if(collision.gameObject.TryGetComponent<MagicBolt>(out MagicBolt magicProjectile))
+        {
+            if (photonView.IsMine)
+                GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, magicProjectile.damage);
         }
     }
     public void SetTarget(GameObject targetObj)

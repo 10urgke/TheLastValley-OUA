@@ -7,10 +7,18 @@ public class MagicBolt : MonoBehaviour
     public float lifeTime = 5f;
     public float damage = 10f;
     public float healAmount = 10f;
+    public ParticleSystem explosionFx;
+    public float explosionTime = 1f;
+    private Rigidbody rb;
+    public GameObject mesh;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     private void OnEnable()
     {
-        StartCoroutine(ReturnToPoolAfterTime());
+        OnSpawn();
     }
 
     private IEnumerator ReturnToPoolAfterTime()
@@ -20,12 +28,31 @@ public class MagicBolt : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-
-        //check player and enemy
+        StartCoroutine(ExplosionCor());
+    }
+    private IEnumerator ExplosionCor()
+    {
+        if(explosionFx.isStopped)
+        {
+            OnHit();
+        }     
+        yield return new WaitForSeconds(explosionTime);
         ReturnToPool();
     }
     private void ReturnToPool()
     {
         gameObject.SetActive(false);
+    }
+    public void OnHit()
+    {
+        explosionFx.Play();
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        mesh.SetActive(false);
+    }
+    public void OnSpawn()
+    {
+        StartCoroutine(ReturnToPoolAfterTime());
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
+        mesh.SetActive(true);
     }
 }
