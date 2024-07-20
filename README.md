@@ -29,7 +29,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 ## Product Backlog URL
 <details>
   <summary>Backlog</summary>
-<img src="./ReadmeFolder/backlog.png">
+<img src="./ReadmeFolder/backlog2.png">
 </details>
 
 ---
@@ -42,9 +42,9 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 <img src="./ReadmeFolder/sayfa 1.png">
 </details>
 
-* Sprint içinde tamamlanması beklenen puan 54 olarak belirlenmiştir.
+* Sprint içinde tamamlanması beklenen puan 50 olarak belirlenmiştir.
   
-* **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 95 olarak belirlenmiştir. İlk sprint için 54 puan tamamlanarak hedefe ulaşılmıştır.
+* **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 98 olarak belirlenmiştir. İlk sprint için 50 puan tamamlanarak hedefe ulaşılmıştır.
   
 * **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
 <details>
@@ -103,6 +103,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 ---
 # Sprint 2
 
+* **Sprint Notları:** a
 <details>
   <summary>Sprint Board</summary>
   
@@ -116,6 +117,22 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 </details>
 
+* Sprint içinde tamamlanması beklenen puan 36 olarak belirlenmiştir.
+  
+* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 98 olarak belirlenmiştir. İkinci sprint için 36 puan tamamlanarak hedefe ulaşılmıştır.
+  
+* **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
+
+<details>
+  <summary>Daily Scrum, Toplantı</summary>
+  
+  ### Daily Scrum
+<img src="./ReadmeFolder/daily.png">
+
+  ### Toplantı
+<img src="./ReadmeFolder/toplantı2.png">
+
+</details>
 
 
 <details>
@@ -133,18 +150,6 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 </details>
 
-<details>
-  <summary>Daily Scrum, Toplantı</summary>
-  
-  ### Daily Scrum
-<img src="./ReadmeFolder/daily.png">
-
-  ### Toplantı
-<img src="./ReadmeFolder/toplantı2.png">
-
- 
-
-</details>
 
 
 
