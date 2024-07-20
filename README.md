@@ -27,7 +27,10 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 * Fantazi türü sevenler
   
 ## Product Backlog URL
-[Unity 16 Backlog](https://docs.google.com/document/d/1wK893vqR6YeycGxKqYDaTwcV0PMFjQAu2SJLVI77iBM/edit#heading=h.xvg4yuhgwkhp)
+<details>
+  <summary>Backlog</summary>
+<img src="./ReadmeFolder/backlog.png">
+</details>
 
 ---
 # Sprint 1
@@ -97,10 +100,51 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 - Görev dağılımında eksik görevleri belirleyip uygun bir şekilde dağıtacağız.
 - Olası problemler için görevlere ekstra zaman vererek süreci daha doğru planlayacağız.
 - Zaman odaklı bir planlama yapmak ve sprint hedeflerine ulaşmak için gereken adımları atacağız
+---
+# Sprint 2
+
+<details>
+  <summary>Sprint Board</summary>
+  
+
+<img src="./ReadmeFolder/1.png">
 
 
 
+<img src="./ReadmeFolder/2.png">
 
+
+</details>
+
+
+
+<details>
+  <summary>Ürün Durumu</summary>
+  
+  ### Ev, Ağaç Örnekleri
+<img src="./ReadmeFolder/üründurumu.png">
+
+  ### Karakterler
+
+<img src="./ReadmeFolder/üründurumu3.png">
+
+
+<img src="./ReadmeFolder/üründurumu2.png">
+
+</details>
+
+<details>
+  <summary>Daily Scrum, Toplantı</summary>
+  
+  ### Daily Scrum
+<img src="./ReadmeFolder/daily.png">
+
+  ### Toplantı
+<img src="./ReadmeFolder/toplantı2.png">
+
+ 
+
+</details>
 
 
 
