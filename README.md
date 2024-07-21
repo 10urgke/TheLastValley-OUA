@@ -165,7 +165,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 - Terrain oluşturuldu ve harita başlangıcı yapıldı.
 - Harita sisteminin bir kısmı oluşturuldu.
 - Giriş ekranı ve ana menü hazırlandı.
-- Karakter controllerları tamamlandı ve multiplayer uyumu ile optimize edildi.
+- Karakter controllerları tamamlandı ve multiplayer uyumu sağlandı.
 - Mermi senkronizasyonu iyileştirildi.
 
 ### Sprint Retrospective
