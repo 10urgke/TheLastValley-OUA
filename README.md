@@ -170,7 +170,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 ### Sprint Retrospective
 
-- Görev dağılımında eksik görevler belirlendi ve tamamlandı.
+- Görev dağılımında eksik görevler belirlendi ve tamamlamak için tarih belirlendi. 
 - Yapılan işleri çift aşamalı bir kontrolden geçirmemiz sayesinde bir işin düzgün olmama veya zaman kaybetme riskini en aza indirmeye devam ettik.
 - Grup içi iletişimimizi ve daily scrumlarımızı daha aktif tutmaya çalıştık.
 - Zaman odaklı planlama yapmaya devam ettik
