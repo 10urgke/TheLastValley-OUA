@@ -359,7 +359,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 2
       minColor: {r: 0.98490566, g: 0.7952851, b: 0.1319402, a: 1}
-      maxColor: {r: 0.5471698, g: 0.22609468, b: 0.4779183, a: 1}
+      maxColor: {r: 0.18490559, g: 0.10850119, b: 0.16813391, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -424,7 +424,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.1
-      minScalar: 0.05
+      minScalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5322,8 +5322,9 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 2
+  observableSearch: 0
   ObservedComponents:
+  - {fileID: 7951195762218220785}
   - {fileID: 7951195762218220785}
   sceneViewId: 0
   InstantiationId: 0

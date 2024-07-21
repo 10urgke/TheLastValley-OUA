@@ -80,8 +80,8 @@ public class RunningState : IEnemyState
             enemy.SetDestination(enemy.target);
             if (enemy.navMeshAgent.remainingDistance < enemy.attackRange)
             {
-                enemy.animManager.SetSpeed(0.1f);
-                enemy.navMeshAgent.speed = 0.1f;
+                enemy.animManager.SetSpeed(0f);
+                enemy.navMeshAgent.speed = 0f;
             }
             else
             {

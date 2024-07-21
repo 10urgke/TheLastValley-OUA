@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Arrow : MonoBehaviour
+public class Arrow : MonoBehaviourPun
 {
     public float lifeTime = 5f;
     public float damage = 10f;
@@ -19,13 +20,11 @@ public class Arrow : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Player"))
-        {
-            ReturnToPool();
-        }
+        ReturnToPool();
     }
     private void ReturnToPool()
     {
-        gameObject.SetActive(false);
+        if (photonView.IsMine)
+            PhotonNetwork.Destroy(gameObject);
     }
 }

@@ -123,8 +123,14 @@ MonoBehaviour:
   animationWalkSpeed: 0
   sprintBlock: 0
   isCarrying: 0
+  health: 100
+  heathBarSelf: {fileID: 7600635876412556388}
+  heathBarForOthers: {fileID: 1433164558525630077}
   waitTimeForAttack: 0.9
   waitTimeForNextAttack: 0.9
+  damage: 10
+  swordCollider: {fileID: 8029616758050937821}
+  sword: {fileID: 2254591928767440885}
 --- !u!143 &3926624834005402933
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1324,9 +1330,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 99
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 84.3
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2743,6 +2749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3367413151054011717}
   - component: {fileID: 8029616758050937821}
+  - component: {fileID: 2254591928767440885}
   m_Layer: 0
   m_Name: SwordCollider
   m_TagString: Untagged
@@ -2784,10 +2791,23 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.06
   m_Height: 1.65
   m_Direction: 0
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &2254591928767440885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569140114528933429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ee69c7d52bc334fa7a9f32d265b2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &8604218251484464713
 GameObject:
   m_ObjectHideFlags: 0

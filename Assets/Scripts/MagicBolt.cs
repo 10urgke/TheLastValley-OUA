@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicBolt : MonoBehaviour
+public class MagicBolt : MonoBehaviourPun
 {
     public float lifeTime = 5f;
     public float damage = 10f;
@@ -41,7 +42,8 @@ public class MagicBolt : MonoBehaviour
     }
     private void ReturnToPool()
     {
-        gameObject.SetActive(false);
+        if (photonView.IsMine)
+            PhotonNetwork.Destroy(gameObject);
     }
     public void OnHit()
     {
@@ -55,4 +57,5 @@ public class MagicBolt : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         mesh.SetActive(true);
     }
+
 }

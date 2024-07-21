@@ -158,9 +158,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 99
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 84.3
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -324,6 +324,9 @@ MonoBehaviour:
   animationWalkSpeed: 0
   sprintBlock: 0
   isCarrying: 0
+  health: 100
+  heathBarSelf: {fileID: 2170662141923657570}
+  heathBarForOthers: {fileID: 7905893178480643014}
   arrowPrefab: {fileID: 607164480234708134, guid: b6db62f2aa2bb92439f6bd219b63106c,
     type: 3}
   arrowSpawnPoint: {fileID: 318276169721642749}
@@ -334,7 +337,6 @@ MonoBehaviour:
   waitTimeForNextAttackAfterShoot: 0.9
   freeLookCam: {fileID: 0}
   freeLookZoom: 20
-  pooler: {fileID: 0}
 --- !u!143 &3117511878605964967
 CharacterController:
   m_ObjectHideFlags: 0

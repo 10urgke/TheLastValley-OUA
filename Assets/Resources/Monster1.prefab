@@ -1171,8 +1171,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 570465412863808431}
   m_AABB:
-    m_Center: {x: 0.08330639, y: 1.1038918, z: -0.08061266}
-    m_Extent: {x: 0.15154943, y: 0.2905886, z: 0.3289274}
+    m_Center: {x: NaN, y: NaN, z: NaN}
+    m_Extent: {x: NaN, y: NaN, z: NaN}
   m_DirtyAABB: 0
 --- !u!183 &7846983496281915443
 Cloth:
@@ -1530,7 +1530,7 @@ MonoBehaviour:
   animManager: {fileID: 0}
   navMeshAgent: {fileID: 0}
   target: {fileID: 0}
-  attackRange: 1
+  attackRange: 2
   destinations: []
 --- !u!195 &7482345765793860238
 NavMeshAgent:

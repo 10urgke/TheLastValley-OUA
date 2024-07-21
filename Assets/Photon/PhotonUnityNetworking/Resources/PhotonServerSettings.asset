@@ -52,6 +52,16 @@ MonoBehaviour:
   - ChangeStateAttacking
   - ChangeStateDying
   - ChangeStateRPC
+  - AdjustHealthBars
+  - GetHeal
+  - ActivateMagic
+  - PlayAttackFx
+  - Heal
+  - SetActiveOnNetwork
+  - ReturnToPool
+  - HealFx
+  - PlayHealFx
+  - GetSelfHeal
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -16,15 +16,13 @@ public class WizardController : ThirdPersonCharacterController
     public float waitTimeForShoot = 0.9f;
     public float waitTimeForNextAttackAfterShoot = 0.9f;
     public ParticleSystem attackFx;
-    public ObjectPooler pooler;
+    public ParticleSystem healFx;
 
     private bool isShooting;
 
     protected override void Start()
     {
         base.Start();
-        pooler = GetComponent<ObjectPooler>();
-        pooler.MakePool(magicPrefab, projectilePoolSize);
     }
     protected override void Update()
     {
@@ -41,7 +39,7 @@ public class WizardController : ThirdPersonCharacterController
         }
         if (Input.GetButtonDown("Fire2") && !isShooting)
         {
-            animationManager.SetTrigger("Cast");
+            animationManager.SetTrigger("Cast");           
             isShooting = true;
             StartCoroutine(CastHealCoroutine());
         }
@@ -73,28 +71,34 @@ public class WizardController : ThirdPersonCharacterController
     }
     private IEnumerator CastHealCoroutine()
     {
-        Heal();
+        GetSelfHeal(magicHeal);
         yield return new WaitForSeconds(waitTimeForNextAttackAfterShoot);
         isShooting = false;
     }
 
     private void SpawnMagic()
     {
-        attackFx.Play();
-        GameObject magic = pooler.GetPooledObject(magicPrefab);
-        magic.transform.position = magicSpawnPoint.position + transform.forward;
-        magic.transform.rotation = magicSpawnPoint.rotation * Quaternion.Euler(0, 90, 0);
-        magic.GetComponent<MagicBolt>().damage = magicDamage;
-        magic.GetComponent<MagicBolt>().healAmount = magicHeal;
-        magic.SetActive(true);
-        magic.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        magic.GetComponent<Rigidbody>().AddForce(transform.forward * magicForce);
-
-        //GameObject magicMissile = PhotonNetwork.Instantiate(magicPrefab.name, magicSpawnPoint.position + transform.forward, magicSpawnPoint.rotation * Quaternion.Euler(0, 90, 0));
-        //magicMissile.GetComponent<Rigidbody>().AddForce(transform.forward * magicForce);
+        if(photonView.IsMine)
+            photonView.RPC("PlayAttackFx", RpcTarget.All);
+        GameObject magicMissile = PhotonNetwork.Instantiate(magicPrefab.name, magicSpawnPoint.position + transform.forward, magicSpawnPoint.rotation * Quaternion.Euler(0, 90, 0));
+        magicMissile.GetComponent<Rigidbody>().AddForce(transform.forward * magicForce);
+        magicMissile.GetComponent<MagicBolt>().damage = magicDamage;
+        magicMissile.GetComponent<MagicBolt>().healAmount = magicHeal;
     }
-    public void Heal()
+    public void GetSelfHeal(float amount)
     {
-
+        if (photonView.IsMine)
+            photonView.RPC("PlayHealFx", RpcTarget.All);
+        photonView.RPC("GetHeal", RpcTarget.All, amount);      
+    }
+    [PunRPC]
+    public void PlayAttackFx()
+    {
+        attackFx.Play();
+    }
+    [PunRPC]
+    public void PlayHealFx()
+    {
+        healFx.Play();
     }
 }

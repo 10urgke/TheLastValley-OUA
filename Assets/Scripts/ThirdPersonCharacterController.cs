@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-public class ThirdPersonCharacterController : MonoBehaviour
+using UnityEngine.UI;
+public class ThirdPersonCharacterController : MonoBehaviourPun
 {
     [Header("Movement Settings")]
     public float speed = 5f;
@@ -27,12 +28,20 @@ public class ThirdPersonCharacterController : MonoBehaviour
     private float turnSmoothVelocity;
     public bool sprintBlock;
     public bool isCarrying;
+    [Space]
+    public float health = 100f;
+    public Slider heathBarSelf;
+    public Slider heathBarForOthers;
 
     protected virtual void Start()
     {
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         animationManager = GetComponent<PlayerAnimationManager>();
+         
+        heathBarSelf.maxValue = health;
+        heathBarForOthers.maxValue = health;
+        AdjustHealthBars();
     }
 
     protected virtual void Update()
@@ -131,6 +140,35 @@ public class ThirdPersonCharacterController : MonoBehaviour
             characterController.Move(new Vector3(0, newY - transform.position.y, 0)); 
             elapsedTime += Time.deltaTime;
             yield return null;
+        }
+    }
+    [PunRPC]
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        if (photonView.IsMine)
+            GetComponent<PhotonView>().RPC("AdjustHealthBars", RpcTarget.All);
+    }
+    [PunRPC]
+    public void GetHeal(float amount)
+    {
+        health += amount;
+        if (photonView.IsMine)
+            GetComponent<PhotonView>().RPC("AdjustHealthBars", RpcTarget.All);
+    }
+    //?
+    [PunRPC]
+    public void AdjustHealthBars()
+    {
+        heathBarSelf.value = health;
+        heathBarForOthers.value = health;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.TryGetComponent<MagicBolt>(out MagicBolt magicBolt))
+        {
+            if (photonView.IsMine)
+                GetComponent<PhotonView>().RPC("GetHeal", RpcTarget.All, magicBolt.healAmount);
         }
     }
 }

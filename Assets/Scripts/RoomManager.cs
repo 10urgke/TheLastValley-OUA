@@ -14,14 +14,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
         DontDestroyOnLoad(gameObject);
         
     }
-    ////enemy spawn test
-    //private void Update()
-    //{
-    //    if(Input.GetKeyDown(KeyCode.I))
-    //    {
-    //        var _enemy = PhotonNetwork.Instantiate(enemy.name, spawnPoint.position, Quaternion.identity);
-    //    }
-    //}
+    //enemy spawn test
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            var _enemy = PhotonNetwork.Instantiate(enemy.name, spawnPoint, Quaternion.identity);
+        }
+    }
     public void Connect(GameObject selectedChar, string roomName)
     {
         player = selectedChar;

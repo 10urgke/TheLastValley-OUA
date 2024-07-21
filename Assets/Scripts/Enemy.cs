@@ -120,9 +120,9 @@ public class Enemy : MonoBehaviourPun
         animManager.SetTrigger("Death");
         //Debug.Log("Death func");
         //pool for different areas
-        Destroy(gameObject, 5f);
-        //if (photonView.IsMine)
-        //    StartCoroutine(DeathAfterSecsOnNetwork(5f));
+        //Destroy(gameObject, 5f);
+        if (photonView.IsMine)
+            StartCoroutine(DeathAfterSecsOnNetwork(5f));
     }
 
     //for networked instantiated objects
@@ -134,15 +134,20 @@ public class Enemy : MonoBehaviourPun
     [PunRPC]
     public void DeathOnNetwork()
     {
-        PhotonNetwork.Destroy(gameObject);
+        if(photonView.IsMine)
+            PhotonNetwork.Destroy(gameObject);
     }
     [PunRPC]
     public void Attack()
     {
         animManager.SetTrigger("Attack");
-        //Debug.Log("Attack to " + target.name);
+        //Debug.Log("Attack to " + target.name);      
         if (photonView.IsMine)
-            GetComponent<PhotonView>().RPC("UpdateAttackTimerOnNetwork", RpcTarget.Others);
+        {
+            target.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
+            GetComponent<PhotonView>().RPC("UpdateAttackTimerOnNetwork", RpcTarget.Others);         
+        }
+            
         attackTimer = 0;
         attackCooldownBarSlider.value = attackTimer;
     }
@@ -151,7 +156,7 @@ public class Enemy : MonoBehaviourPun
     {
         if(target == null)
         {
-            if (other.GetComponent<PlayerAnimationManager>() != null)
+            if (other.GetComponent<ThirdPersonCharacterController>() != null)
             {
                 SetTarget(other.gameObject);
 
@@ -167,16 +172,22 @@ public class Enemy : MonoBehaviourPun
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<Arrow>(out Arrow arrowProjectile))
+        if (photonView.IsMine)
         {
-            if(photonView.IsMine)
+            if (collision.gameObject.TryGetComponent<Arrow>(out Arrow arrowProjectile))
+            {         
                 GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, arrowProjectile.damage);
-        }
-        else if(collision.gameObject.TryGetComponent<MagicBolt>(out MagicBolt magicProjectile))
-        {
-            if (photonView.IsMine)
+            }
+            else if (collision.gameObject.TryGetComponent<MagicBolt>(out MagicBolt magicProjectile))
+            {
                 GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, magicProjectile.damage);
+            }
+            else if (collision.gameObject.TryGetComponent<Sword>(out Sword sword))
+            {
+                GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, sword.damage);
+            }
         }
+            
     }
     public void SetTarget(GameObject targetObj)
     {

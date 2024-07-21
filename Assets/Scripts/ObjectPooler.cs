@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooler : MonoBehaviour
+public class ObjectPooler : MonoBehaviourPun
 {
     public List<GameObject> pool = new List<GameObject>();
 

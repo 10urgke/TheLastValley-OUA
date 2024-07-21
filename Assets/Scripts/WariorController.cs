@@ -8,11 +8,15 @@ public class WariorController : ThirdPersonCharacterController
     [Header("Warior Settings")]
     public float waitTimeForAttack = 0.9f;
     public float waitTimeForNextAttack = 1f;
-
+    public float damage = 10f;
+    public CapsuleCollider swordCollider;
+    public Sword sword;
     private bool isAttacking;
 
     protected override void Start()
     {
+        swordCollider.enabled = false;
+        sword.damage = damage;
         base.Start();
     }
     protected override void Update()
@@ -26,12 +30,16 @@ public class WariorController : ThirdPersonCharacterController
                 return;
             else if (animationManager.animator.GetBool("Second"))
             {
+                swordCollider.enabled = true;
+                Invoke("SetSwordColDeactive", 0.5f);
                 animationManager.SetTrigger("Attack2");
                 isAttacking = true;
                 StartCoroutine(SecondAttackCoroutine());
             }
             else
             {
+                swordCollider.enabled = true;
+                Invoke("SetSwordColDeactive", 0.5f);
                 animationManager.SetTrigger("Attack1");
                 isAttacking = true;
                 StartCoroutine(RegularAttackCoroutine());
@@ -87,6 +95,10 @@ public class WariorController : ThirdPersonCharacterController
     private IEnumerator SecondAttackCoroutine()
     {
         yield return new WaitForSeconds(waitTimeForNextAttack);
-        isAttacking = false;
+        isAttacking = false;       
+    }
+    public void SetSwordColDeactive()
+    {
+        swordCollider.enabled = false;
     }
 }
