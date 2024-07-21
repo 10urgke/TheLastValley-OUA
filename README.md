@@ -27,10 +27,14 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 * Fantazi türü sevenler
   
 ## Product Backlog URL
-[Unity 16 Backlog](https://docs.google.com/document/d/1wK893vqR6YeycGxKqYDaTwcV0PMFjQAu2SJLVI77iBM/edit#heading=h.xvg4yuhgwkhp)
+<details>
+  <summary>Backlog</summary>
+<img src="./ReadmeFolder/backlog2.png">
+</details>
 
 ---
 # Sprint 1
+* Geliştirici ekip olarak, projenin bütün temel ihtiyaçlarını karşılayabileceğimizi test ettik ve projenin bir sonuca ulaşabileceğine emin olduk.
 * **Sprint Notları:** Proje yönetimi, toplantı notları ve önemli tarihlerin hatırlatılması için notion; fikir geliştirme, daily scrum, genel konuşmalar ve toplantılar için discord kullanılmasına karar verilmiştir.
 <details>
   <summary>Sprint Board</summary>
@@ -39,9 +43,9 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 <img src="./ReadmeFolder/sayfa 1.png">
 </details>
 
-* Sprint içinde tamamlanması beklenen puan 54 olarak belirlenmiştir.
+* Sprint içinde tamamlanması beklenen puan 50 olarak belirlenmiştir.
   
-* **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 95 olarak belirlenmiştir. İlk sprint için 54 puan tamamlanarak hedefe ulaşılmıştır.
+* **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 98 olarak belirlenmiştir. İlk sprint için 50 puan tamamlanarak hedefe ulaşılmıştır.
   
 * **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
 <details>
@@ -97,10 +101,80 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 - Görev dağılımında eksik görevleri belirleyip uygun bir şekilde dağıtacağız.
 - Olası problemler için görevlere ekstra zaman vererek süreci daha doğru planlayacağız.
 - Zaman odaklı bir planlama yapmak ve sprint hedeflerine ulaşmak için gereken adımları atacağız
+---
+# Sprint 2
+
+* Geliştirici ekip olarak, belirlenen oyun mekaniklerini ve karakter modellerini başarıyla entegre ettik, harita ve çevre tasarımlarının bir kısmını tamamlayarak oyunun temel oynanışını test edilebilir hale getirdik.
+
+<details>
+  <summary>Sprint Board</summary>
+  
+
+<img src="./ReadmeFolder/1.png">
 
 
 
+<img src="./ReadmeFolder/2.png">
 
+
+</details>
+
+* Sprint içinde tamamlanması beklenen puan 36 olarak belirlenmiştir.
+  
+* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 98 olarak belirlenmiştir. İkinci sprint için 36 puan tamamlanarak hedefe ulaşılmıştır.
+  
+* **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
+
+<details>
+  <summary>Daily Scrum, Toplantı</summary>
+  
+  ### Daily Scrum
+<img src="./ReadmeFolder/daily.png">
+
+  ### Toplantı
+<img src="./ReadmeFolder/toplantı2.png">
+
+</details>
+
+
+<details>
+  <summary>Ürün Durumu</summary>
+  
+  ### Ev, Ağaç Örnekleri
+<img src="./ReadmeFolder/üründurumu.png">
+
+  ### Magical Stone Golem
+
+<img src="./ReadmeFolder/üründurumu3.png">
+
+  ### Karakterler
+
+<img src="./ReadmeFolder/üründurumu2.png">
+
+</details>
+
+### Sprint Review
+
+- Önceki sprint döneminden kalan, istediğimiz gibi olmadığını fark ettiğimiz görevler belirlendi ve yeniden yapılması için zaman planlaması yapıldı.
+- Yeni co-op teknolojileri araştırıldı ve mekanikleri oluşturuldu.
+- Animasyon diyagramları karakterlere uyarlandı.
+- Köylü karakterlerin modellemesi ve ok fırlatma mekanikleri tamamlandı.
+- Magical stone golem modeli oluşturuldu.
+- Düşman kodları yazıldı ve NavMesh eklendi.
+- Enemy class yazıldı ve düzenlendi.
+- Terrain oluşturuldu ve harita başlangıcı yapıldı.
+- Harita sisteminin bir kısmı oluşturuldu.
+- Giriş ekranı ve ana menü hazırlandı.
+- Karakter controllerları tamamlandı ve multiplayer uyumu sağlandı.
+- Zaman tasarruf sağlamak amacı ile düşman saldırıları basitleştirildi ve her düşmana uygulanabilir hale getirildi.
+
+### Sprint Retrospective
+
+- Görev dağılımında eksik görevler belirlendi ve tamamlamak için tarih belirlendi. 
+- Yapılan işleri çift aşamalı bir kontrolden geçirmemiz sayesinde bir işin düzgün olmama veya zaman kaybetme riskini en aza indirmeye devam ettik.
+- Grup içi iletişimimizi ve daily scrumlarımızı daha aktif tutmaya çalıştık.
+- Zaman odaklı planlama yapmaya devam ettik
+- Süre yetmeyeceği için oyundan bazı unsurları kaldırma konusunda hemfikir olduk.
 
 
 
