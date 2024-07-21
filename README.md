@@ -166,7 +166,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 - Harita sisteminin bir kısmı oluşturuldu.
 - Giriş ekranı ve ana menü hazırlandı.
 - Karakter controllerları tamamlandı ve multiplayer uyumu sağlandı.
-- Mermi senkronizasyonu iyileştirildi.
+- Zaman tasarruf sağlamak amacı ile düşman saldırıları basitleştirildi ve her düşmana uygulanabilir hale getirildi.
 
 ### Sprint Retrospective
 
@@ -175,6 +175,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 - Grup içi iletişimimizi ve daily scrumlarımızı daha aktif tutmaya çalıştık.
 - Zaman odaklı planlama yapmaya devam ettik
 - Süre yetmeyeceği için oyundan bazı unsurları kaldırma konusunda hemfikir olduk.
+
 
 
 
