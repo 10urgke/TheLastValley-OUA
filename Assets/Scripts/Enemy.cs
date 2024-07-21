@@ -24,8 +24,8 @@ public class Enemy : MonoBehaviourPun
     private void Start()
     {
         animManager = GetComponent<AnimationManager>();
-        healthBarSlider.value = health;
         healthBarSlider.maxValue = health;
+        healthBarSlider.value = health;      
         healthBarSlider.minValue = 0;
         attackCooldownBarSlider.maxValue = attackCooldown;
         attackTimer = 0;
