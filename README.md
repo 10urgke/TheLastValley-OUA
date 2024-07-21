@@ -34,6 +34,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 ---
 # Sprint 1
+* Geliştirici ekip olarak, projenin bütün temel ihtiyaçlarını karşılayabileceğimizi test ettik ve projenin bir sonuca ulaşabileceğine emin olduk.
 * **Sprint Notları:** Proje yönetimi, toplantı notları ve önemli tarihlerin hatırlatılması için notion; fikir geliştirme, daily scrum, genel konuşmalar ve toplantılar için discord kullanılmasına karar verilmiştir.
 <details>
   <summary>Sprint Board</summary>
@@ -103,7 +104,8 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 ---
 # Sprint 2
 
-* **Sprint Notları:** a
+* Geliştirici ekip olarak, belirlenen oyun mekaniklerini ve karakter modellerini başarıyla entegre ettik, harita ve çevre tasarımlarının bir kısmını tamamlayarak oyunun temel oynanışını test edilebilir hale getirdik.
+
 <details>
   <summary>Sprint Board</summary>
   
@@ -141,16 +143,38 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
   ### Ev, Ağaç Örnekleri
 <img src="./ReadmeFolder/üründurumu.png">
 
-  ### Karakterler
+  ### Magical Stone Golem
 
 <img src="./ReadmeFolder/üründurumu3.png">
 
+  ### Karakterler
 
 <img src="./ReadmeFolder/üründurumu2.png">
 
 </details>
 
+### Sprint Review
 
+- Önceki sprint döneminden kalan, istediğimiz gibi olmadığını fark ettiğimiz görevler belirlendi ve yeniden yapılması için zaman planlaması yapıldı.
+- Yeni co-op teknolojileri araştırıldı ve mekanikleri oluşturuldu.
+- Animasyon diyagramları karakterlere uyarlandı.
+- Köylü karakterlerin modellemesi ve ok fırlatma mekanikleri tamamlandı.
+- Magical stone golem modeli oluşturuldu.
+- Düşman kodları yazıldı ve NavMesh eklendi.
+- Enemy class yazıldı ve düzenlendi.
+- Terrain oluşturuldu ve harita başlangıcı yapıldı.
+- Harita sisteminin bir kısmı oluşturuldu.
+- Giriş ekranı ve ana menü hazırlandı.
+- Karakter controllerları tamamlandı ve multiplayer uyumu ile optimize edildi.
+- Mermi senkronizasyonu iyileştirildi.
+
+### Sprint Retrospective
+
+- Görev dağılımında eksik görevler belirlendi ve tamamlandı.
+- Yapılan işleri çift aşamalı bir kontrolden geçirmemiz sayesinde bir işin düzgün olmama veya zaman kaybetme riskini en aza indirmeye devam ettik.
+- Grup içi iletişimimizi ve daily scrumlarımızı daha aktif tutmaya çalıştık.
+- Zaman odaklı planlama yapmaya devam ettik
+- Süre yetmeyeceği için oyundan bazı unsurları kaldırma konusunda hemfikir olduk.
 
 
 
