@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 4023591861127237347}
   - component: {fileID: 3530008174826700350}
   - component: {fileID: 8127526623259418059}
+  - component: {fileID: 2818543008531298507}
   - component: {fileID: 6417838988286975836}
   - component: {fileID: 2603160343897526208}
   - component: {fileID: 4313719931794380020}
@@ -558,8 +559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01829b11085c2b04088ca13a79ec69e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  health: 0
+  speed: 1
+  health: 100
   healthBar: {fileID: 5618098884972375987}
   showHelpPanel: {fileID: 4469634978322372899}
   isDying: 0
@@ -613,6 +614,27 @@ CapsuleCollider:
   m_Height: 2.8
   m_Direction: 1
   m_Center: {x: 0, y: 1.4, z: 0}
+--- !u!135 &2818543008531298507
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800053851276953254}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 8
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &6417838988286975836
 NavMeshAgent:
   m_ObjectHideFlags: 0

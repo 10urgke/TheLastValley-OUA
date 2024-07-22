@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class VillagerQuest : MonoBehaviourPun
 {
-    private Transform destination;
+    public Transform destination;
     private NavMeshAgent navMeshAgent;
     private AnimationManager animManager;
     public float speed;
@@ -36,6 +36,7 @@ public class VillagerQuest : MonoBehaviourPun
     [PunRPC]
     public void WalkToDest()
     {
+        showHelpPanel.SetActive(false);
         isDying = false;
         navMeshAgent.speed = speed;
         animManager.SetSpeed(0.5f);
