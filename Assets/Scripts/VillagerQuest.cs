@@ -24,6 +24,11 @@ public class VillagerQuest : MonoBehaviourPun
         healthBar.value = health;
         Dying();
     }
+    private void Update()
+    {
+        if(navMeshAgent.remainingDistance < 1f && photonView.IsMine)
+            photonView.RPC("QuestFinished", RpcTarget.All);
+    }
     [PunRPC]
     public void TakeDamage(float amount)
     {
@@ -57,6 +62,13 @@ public class VillagerQuest : MonoBehaviourPun
     {
         healthBar.value = health;
     }
+    [PunRPC]
+    public void GetHeal(float amount)
+    {
+        health += amount;
+        if (photonView.IsMine)
+            photonView.RPC("UpdateHealthBar", RpcTarget.All);
+    }
     private void OnTriggerStay(Collider other)
     {
         if(other.GetComponent<ThirdPersonCharacterController>() != null && isDying)
@@ -72,5 +84,19 @@ public class VillagerQuest : MonoBehaviourPun
         {
             showHelpPanel.SetActive(false);
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent<MagicBolt>(out MagicBolt magicBolt))
+        {
+            if (photonView.IsMine)
+                photonView.RPC("GetHeal", RpcTarget.All, magicBolt.healAmount);
+        }
+    }
+    [PunRPC]
+    public void QuestFinished()
+    {
+        //disable or delete quest, maybe show fx
+        Destroy(transform.parent.gameObject);
     }
 }

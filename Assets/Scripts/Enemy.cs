@@ -21,6 +21,9 @@ public class Enemy : MonoBehaviourPun
     [SerializeField] private List<Transform> destinations;
 
     [SerializeField] private IEnemyState currentState;
+
+    //for quest
+    public VillagerQuest villager;
     private void Start()
     {
         animManager = GetComponent<AnimationManager>();
@@ -31,7 +34,13 @@ public class Enemy : MonoBehaviourPun
         attackTimer = 0;
         attackCooldownBarSlider.value = attackTimer;
         navMeshAgent = GetComponent<NavMeshAgent>();
-        ChangeState(new IdleState());
+        if(villager == null)
+            ChangeState(new IdleState());
+        else
+        {
+            target = villager.gameObject;
+            ChangeState(new RunningState());
+        }
         //Debug.Log("enemy created");
     }
     private void Update()
@@ -113,7 +122,6 @@ public class Enemy : MonoBehaviourPun
     {
         attackTimer = 0;
         attackCooldownBarSlider.value = attackTimer;
-        Debug.Log("update attack slider func");
     }
     public void Death()
     {
@@ -150,11 +158,29 @@ public class Enemy : MonoBehaviourPun
             
         attackTimer = 0;
         attackCooldownBarSlider.value = attackTimer;
+
+        if(villager != null)
+        {
+            if (target == villager.gameObject && villager.isDying == true)
+                target = null;
+        }
+        
     }
     
     private void OnTriggerEnter(Collider other)
     {
         if(target == null)
+        {
+            if (other.GetComponent<ThirdPersonCharacterController>() != null)
+            {
+                SetTarget(other.gameObject);
+
+            }
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (target == null)
         {
             if (other.GetComponent<ThirdPersonCharacterController>() != null)
             {
@@ -219,9 +245,8 @@ public class Enemy : MonoBehaviourPun
             else
             {
 
-                //might will be spawned in a game object and take its destination locs?
                 //test for instantiate
-                var dests = GameObject.Find("EnemyDest");
+                var dests = gameObject.transform.parent.GetChild(0);
                 foreach (Transform dest in dests.GetComponentInChildren<Transform>())
                 {
                     destinations.Add(dest);
