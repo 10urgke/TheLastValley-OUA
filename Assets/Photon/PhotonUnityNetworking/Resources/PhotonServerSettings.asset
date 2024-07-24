@@ -68,6 +68,11 @@ MonoBehaviour:
   - QuestFinished
   - Die
   - Revive
+  - AllPlayersDead
+  - EndGame
+  - SyncTimer
+  - SyncNextQuestTimer
+  - SyncQuestTimer
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

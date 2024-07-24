@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
+using TMPro;
+using Photon.Pun.Demo.PunBasics;
 public class ThirdPersonCharacterController : MonoBehaviourPun
 {
     [Header("Movement Settings")]
@@ -34,6 +36,8 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
     public Slider heathBarSelf;
     public Slider heathBarForOthers;
     public GameObject helpPanel;
+    public TextMeshProUGUI timerText;
+    public GameManager gameManager;
 
     protected virtual void Start()
     {
@@ -44,6 +48,8 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
         heathBarSelf.maxValue = health;
         heathBarForOthers.maxValue = health;
         AdjustHealthBars();
+        gameManager = FindAnyObjectByType<GameManager>();
+        gameManager.SetTimerText(timerText);
     }
 
     protected virtual void Update()
@@ -180,6 +186,8 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
         {
             animationManager.SetDeathStatus(true);
         }
+        if(photonView.IsMine)
+            gameManager.CheckAllPlayersDead();
     }
     [PunRPC]
     public void Revive()
