@@ -66,6 +66,8 @@ MonoBehaviour:
   - Dying
   - WalkToDest
   - QuestFinished
+  - Die
+  - Revive
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -28,6 +28,8 @@ public class ArcherController : ThirdPersonCharacterController
     }
     protected override void Update()
     {
+        if (isDead)
+            return;
         base.Update();
         HandleSecondStatus();
         HandleCarryStatus();

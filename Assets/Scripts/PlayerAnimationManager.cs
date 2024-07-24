@@ -17,6 +17,10 @@ public class PlayerAnimationManager : AnimationManager
     {
         animator.SetBool("Carry", isActive);
     }
+    public void SetDeathStatus(bool isActive)
+    {
+        animator.SetBool("Death", isActive);
+    }
 
 
     [PunRPC]

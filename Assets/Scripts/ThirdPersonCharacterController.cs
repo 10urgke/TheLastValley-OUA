@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
@@ -28,10 +28,12 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
     private float turnSmoothVelocity;
     public bool sprintBlock;
     public bool isCarrying;
+    public bool isDead = false;
     [Space]
     public float health = 100f;
     public Slider heathBarSelf;
     public Slider heathBarForOthers;
+    public GameObject helpPanel;
 
     protected virtual void Start()
     {
@@ -45,7 +47,9 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
     }
 
     protected virtual void Update()
-    {
+    {         
+        if (isDead) 
+            return;
         HandleMovement();
         HandleJump();
     }
@@ -147,7 +151,12 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
     {
         health -= amount;
         if (photonView.IsMine)
-            GetComponent<PhotonView>().RPC("AdjustHealthBars", RpcTarget.All);
+        {
+            photonView.RPC("AdjustHealthBars", RpcTarget.All);
+            if(health < 1)
+                photonView.RPC("Die", RpcTarget.All);
+        }
+            
     }
     [PunRPC]
     public void GetHeal(float amount)
@@ -156,12 +165,38 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
         if (photonView.IsMine)
             GetComponent<PhotonView>().RPC("AdjustHealthBars", RpcTarget.All);
     }
-    //?
     [PunRPC]
     public void AdjustHealthBars()
     {
         heathBarSelf.value = health;
         heathBarForOthers.value = health;
+    }
+    [PunRPC]
+    public void Die()
+    {
+        isDead = true;
+        //animationManager.SetWalkStatus(false);
+        if (animationManager != null)
+        {
+            animationManager.SetDeathStatus(true);
+        }
+    }
+    [PunRPC]
+    public void Revive()
+    {
+        isDead = false;
+        health = 100f; 
+        if (photonView.IsMine)
+            GetComponent<PhotonView>().RPC("AdjustHealthBars", RpcTarget.All);
+        //animationManager.SetWalkStatus(true);
+        if (animationManager != null)
+        {
+            animationManager.SetDeathStatus(false);
+        }
+        if (helpPanel != null)
+        {
+            helpPanel.SetActive(false);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -171,4 +206,16 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
                 GetComponent<PhotonView>().RPC("GetHeal", RpcTarget.All, magicBolt.healAmount);
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.TryGetComponent<ThirdPersonCharacterController>(out ThirdPersonCharacterController controller))
+        {
+            if (controller.isDead){
+                controller.helpPanel.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.F))
+                    other.GetComponent<PhotonView>().RPC("Revive", RpcTarget.All);
+            }        
+        }
+    }
+    
 }
