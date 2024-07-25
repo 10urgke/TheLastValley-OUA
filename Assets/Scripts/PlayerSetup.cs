@@ -11,10 +11,9 @@ public class PlayerSetup : MonoBehaviour
     public GameObject camTwo;
     public ThirdPersonCharacterController characterController;
     public GameObject canvasForYourself;
-    //public AnimTestScript animTest;
+
     [Header("Make active on prefab")]
     public GameObject canvasForOthers;
-
 
     public void IsLocalPlayer(bool isActive)
     {
@@ -23,7 +22,6 @@ public class PlayerSetup : MonoBehaviour
         camTwo.SetActive(isActive);
         characterController.enabled = isActive;
         canvasForYourself.SetActive(isActive);
-        //animTest.enabled = isActive;
 
         //Activated in the editor
         canvasForOthers.SetActive(!isActive);

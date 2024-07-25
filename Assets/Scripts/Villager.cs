@@ -22,9 +22,9 @@ public class Villager : MonoBehaviourPun
         animManager.SetSpeed(0f);
         navMeshAgent.speed = 0;
         idleTime = Random.Range(idleTimeMin, idleTimeMax);
-        StartCoroutine(WaitInIdle());
-        
+        StartCoroutine(WaitInIdle());       
     }
+
     private void Update()
     {
         if(navMeshAgent.remainingDistance < 2f && !isIdle)
@@ -32,6 +32,7 @@ public class Villager : MonoBehaviourPun
             StartCoroutine(WaitInIdle());
         }
     }
+
     public IEnumerator WaitInIdle()
     {
         if(!isIdle)
@@ -39,7 +40,8 @@ public class Villager : MonoBehaviourPun
             animManager.SetSpeed(0f);
             navMeshAgent.speed = 0;
             isIdle = true;
-        }     
+        }    
+        
         yield return new WaitForSeconds(idleTime);
         SetDestination();
     }
@@ -54,6 +56,5 @@ public class Villager : MonoBehaviourPun
             isIdle = false;
         }
     }
-    
 }
 

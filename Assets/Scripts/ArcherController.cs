@@ -26,13 +26,17 @@ public class ArcherController : ThirdPersonCharacterController
         //pooler = GetComponent<ObjectPooler>();
         //pooler.MakePool(arrowPrefab, projectilePoolSize);
     }
+
     protected override void Update()
     {
         if (isDead)
             return;
+
         base.Update();
+
         HandleSecondStatus();
         HandleCarryStatus();
+
         if (Input.GetButtonDown("Fire1") && !isShooting)
         {
             if (animationManager.animator.GetBool("Carry"))
@@ -51,10 +55,12 @@ public class ArcherController : ThirdPersonCharacterController
             }        
         }
     }
+
     private void HandleSecondStatus()
     {
         if (animationManager.animator.GetBool("Carry"))
             return;
+
         if (Input.GetButtonDown("Fire2"))
         {
             sprintBlock = true;
@@ -62,8 +68,8 @@ public class ArcherController : ThirdPersonCharacterController
             animationManager.SetWalkStatus(false);
             animationManager.SetSecondStatus(true);
             animationManager.SetCarryStatus(false);
-
         }
+
         if (Input.GetButtonUp("Fire2"))
         {
             animationManager.SetWalkStatus(true);
@@ -73,18 +79,20 @@ public class ArcherController : ThirdPersonCharacterController
             sprintBlock = false;
         }
     }
+
     private void HandleCarryStatus()
     {
         if (animationManager.animator.GetBool("Second"))
             return;
+
         if (isCarrying)
         {
             sprintBlock = true;
             animationManager.SetWalkStatus(false);
             animationManager.SetSecondStatus(false);
             animationManager.SetCarryStatus(true);
-
         }
+
         else if (!isCarrying)
         {
             animationManager.SetWalkStatus(true);
@@ -101,6 +109,7 @@ public class ArcherController : ThirdPersonCharacterController
         yield return new WaitForSeconds(waitTimeForNextAttackAfterShoot);
         isShooting = false;
     }
+
     private IEnumerator SecondShootCoroutine()
     {
         ShootArrow();
@@ -119,7 +128,6 @@ public class ArcherController : ThirdPersonCharacterController
         //    arrow.GetComponent<PhotonView>().RPC("SetActiveOnNetwork", RpcTarget.All);
         //arrow.GetComponent<Rigidbody>().velocity = Vector3.zero;
         //arrow.GetComponent<Rigidbody>().AddForce(transform.forward * arrowForce);
-
 
         GameObject newArrow = PhotonNetwork.Instantiate(arrowPrefab.name, arrowSpawnPoint.position + transform.forward, arrowSpawnPoint.rotation * Quaternion.Euler(0, 90, 0));
         newArrow.GetComponent<Rigidbody>().AddForce(transform.forward * arrowForce);

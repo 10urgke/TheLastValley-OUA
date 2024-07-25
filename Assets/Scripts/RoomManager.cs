@@ -12,8 +12,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        
     }
+
     //enemy spawn test
     private void Update()
     {
@@ -22,6 +22,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             var _enemy = PhotonNetwork.Instantiate(enemy.name, spawnPoint, Quaternion.identity);
         }
     }
+
     public void Connect(GameObject selectedChar, string roomName)
     {
         player = selectedChar;
@@ -34,12 +35,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
         base.OnConnectedToMaster();
         PhotonNetwork.JoinLobby();
     }
+
     public override void OnJoinedLobby()
     {
         base.OnJoinedLobby();
         SceneManager.LoadScene("NetworkTest");
         PhotonNetwork.JoinOrCreateRoom(roomName, null,null);       
     }
+
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();

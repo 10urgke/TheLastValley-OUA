@@ -24,10 +24,13 @@ public class WizardController : ThirdPersonCharacterController
     {
         base.Start();
     }
+
     protected override void Update()
     {
         base.Update();
+
         HandleCarryStatus();
+
         if (Input.GetButtonDown("Fire1") && !isShooting)
         {
             if (animationManager.animator.GetBool("Carry"))
@@ -37,6 +40,7 @@ public class WizardController : ThirdPersonCharacterController
             isShooting = true;
             StartCoroutine(RegularAttackCoroutine());      
         }
+
         if (Input.GetButtonDown("Fire2") && !isShooting)
         {
             animationManager.SetTrigger("Cast");           
@@ -54,6 +58,7 @@ public class WizardController : ThirdPersonCharacterController
             animationManager.SetCarryStatus(true);
 
         }
+
         else if (!isCarrying)
         {
             animationManager.SetWalkStatus(true);
@@ -80,6 +85,7 @@ public class WizardController : ThirdPersonCharacterController
     {
         if(photonView.IsMine)
             photonView.RPC("PlayAttackFx", RpcTarget.All);
+
         GameObject magicMissile = PhotonNetwork.Instantiate(magicPrefab.name, magicSpawnPoint.position + transform.forward, magicSpawnPoint.rotation * Quaternion.Euler(0, 90, 0));
         magicMissile.GetComponent<Rigidbody>().AddForce(transform.forward * magicForce);
         magicMissile.GetComponent<MagicBolt>().damage = magicDamage;
@@ -89,13 +95,16 @@ public class WizardController : ThirdPersonCharacterController
     {
         if (photonView.IsMine)
             photonView.RPC("PlayHealFx", RpcTarget.All);
+
         photonView.RPC("GetHeal", RpcTarget.All, amount);      
     }
+
     [PunRPC]
     public void PlayAttackFx()
     {
         attackFx.Play();
     }
+
     [PunRPC]
     public void PlayHealFx()
     {

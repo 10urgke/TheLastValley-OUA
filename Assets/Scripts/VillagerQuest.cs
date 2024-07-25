@@ -1,4 +1,4 @@
-using Photon.Pun;
+﻿using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,29 +6,46 @@ using UnityEngine.UI;
 
 public class VillagerQuest : MonoBehaviourPun
 {
-    public Transform destination;
-    private NavMeshAgent navMeshAgent;
+    public NavMeshAgent navMeshAgent;
     private AnimationManager animManager;
     public float speed;
     public float health;
     public Slider healthBar;
     public GameObject showHelpPanel;
     public bool isDying;
+    public VillagerQuestManager questManager;
     private void Awake()
     {
         animManager = GetComponent<AnimationManager>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        if(photonView.IsMine)
-            navMeshAgent.SetDestination(destination.position);
+        questManager = GetComponentInParent<VillagerQuestManager>();
+
+        if (animManager != null && animManager.animator == null)
+        {
+            animManager.animator = GetComponent<Animator>();
+        }
         healthBar.maxValue = health;
         healthBar.value = health;
-        Dying();
     }
+
+    private void OnEnable()
+    {     
+        if (photonView.IsMine)
+            navMeshAgent.SetDestination(questManager.destination.localPosition);
+           
+        Dying();       
+    }
+
     private void Update()
     {
         if(navMeshAgent.remainingDistance < 1f && photonView.IsMine)
+        {
+            Debug.Log(navMeshAgent.remainingDistance);
+            Debug.Log("koylu quest bitti");
             photonView.RPC("QuestFinished", RpcTarget.All);
+        }           
     }
+
     [PunRPC]
     public void TakeDamage(float amount)
     {
@@ -38,9 +55,12 @@ public class VillagerQuest : MonoBehaviourPun
         if (photonView.IsMine)
             photonView.RPC("UpdateHealthBar", RpcTarget.All);
     }
+
     [PunRPC]
     public void WalkToDest()
-    {
+    {    
+        healthBar.value = health;
+        questManager.QuestStart();
         showHelpPanel.SetActive(false);
         isDying = false;
         navMeshAgent.speed = speed;
@@ -48,20 +68,27 @@ public class VillagerQuest : MonoBehaviourPun
         animManager.animator.SetBool("Dying", false);
         animManager.animator.SetBool("Walk", true);
     }
+
     [PunRPC]
     public void Dying()
     {
+        if (photonView.IsMine)
+            navMeshAgent.SetDestination(questManager.destination.localPosition);
+
+        health = healthBar.maxValue;
         isDying = true;
         navMeshAgent.speed = 0;
         animManager.SetSpeed(0);
         animManager.animator.SetBool("Dying", true);
         animManager.animator.SetBool("Walk", false);
     }
+
     [PunRPC]
     public void UpdateHealthBar()
     {
         healthBar.value = health;
     }
+
     [PunRPC]
     public void GetHeal(float amount)
     {
@@ -69,6 +96,13 @@ public class VillagerQuest : MonoBehaviourPun
         if (photonView.IsMine)
             photonView.RPC("UpdateHealthBar", RpcTarget.All);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("VillagerQuestCheckPoint"))
+            questManager.SecondPhaseInQuest();
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if(other.GetComponent<ThirdPersonCharacterController>() != null && isDying)
@@ -78,6 +112,7 @@ public class VillagerQuest : MonoBehaviourPun
                 photonView.RPC("WalkToDest", RpcTarget.All);
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.GetComponent<ThirdPersonCharacterController>() != null && isDying)
@@ -85,6 +120,7 @@ public class VillagerQuest : MonoBehaviourPun
             showHelpPanel.SetActive(false);
         }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.TryGetComponent<MagicBolt>(out MagicBolt magicBolt))
@@ -93,10 +129,11 @@ public class VillagerQuest : MonoBehaviourPun
                 photonView.RPC("GetHeal", RpcTarget.All, magicBolt.healAmount);
         }
     }
+
     [PunRPC]
     public void QuestFinished()
     {
-        //disable or delete quest, maybe show fx
-        Destroy(transform.parent.gameObject);
+        Dying();
+        questManager.GetComponent<PhotonView>().RPC("CompleteQuest",RpcTarget.All);
     }
 }

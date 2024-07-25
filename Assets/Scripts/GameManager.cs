@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviourPun
             UpdateNextQuestTimerUI();
         }
 
-
         if (isQuestRunning)
         {
             questRemainingTime -= Time.deltaTime;
@@ -49,16 +48,19 @@ public class GameManager : MonoBehaviourPun
             UpdateQuestTimerUI();
         }
     }
+
     public void SetTimerText(TextMeshProUGUI TMPtext)
     {
         timerText = TMPtext;
     }
+
     private void UpdateNextQuestTimerUI()
     {
         int minutes = Mathf.FloorToInt(nextQuestRemainingTime / 60F);
         int seconds = Mathf.FloorToInt(nextQuestRemainingTime % 60F);
         timerText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
     }
+
     private void UpdateQuestTimerUI()
     {
         int minutes = Mathf.FloorToInt(questRemainingTime / 60F);
@@ -74,9 +76,9 @@ public class GameManager : MonoBehaviourPun
             isNextQuestTimerRunning = true;
             timerText.color = Color.yellow;
             photonView.RPC("SyncNextQuestTimer", RpcTarget.All, nextQuestRemainingTime, isNextQuestTimerRunning);
-
         }
     }
+
     public void StartQuest()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -90,15 +92,17 @@ public class GameManager : MonoBehaviourPun
             photonView.RPC("SyncQuestTimer", RpcTarget.All, questRemainingTime, isQuestRunning, randomQuestIndex);
         }
     }
+
     public void CompleteQuest()
     {
         if (PhotonNetwork.IsMasterClient)
         {
             isQuestRunning = false;
-            currentQuest.SetActive(false);
+            //currentQuest.SetActive(false);
             StartNextQuestTimer();
         }
     }
+
     [PunRPC]
     private void SyncNextQuestTimer(float time, bool running)
     {
@@ -110,6 +114,7 @@ public class GameManager : MonoBehaviourPun
             UpdateNextQuestTimerUI();
         }
     }
+
     [PunRPC]
     private void SyncQuestTimer(float time, bool running, int questIndex)
     {

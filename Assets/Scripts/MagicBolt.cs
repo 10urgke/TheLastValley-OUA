@@ -12,6 +12,7 @@ public class MagicBolt : MonoBehaviourPun
     public float explosionTime = 1f;
     private Rigidbody rb;
     public GameObject mesh;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,19 +28,23 @@ public class MagicBolt : MonoBehaviourPun
         yield return new WaitForSeconds(lifeTime);
         ReturnToPool();
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         StartCoroutine(ExplosionCor());
     }
+
     private IEnumerator ExplosionCor()
     {
         if(explosionFx.isStopped)
         {
             OnHit();
         }     
+
         yield return new WaitForSeconds(explosionTime);
         ReturnToPool();
     }
+
     private void ReturnToPool()
     {
         if (photonView.IsMine)

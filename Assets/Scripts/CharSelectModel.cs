@@ -10,17 +10,17 @@ public class CharSelectModel : MonoBehaviour
     void Start()
     {
         charAnimator = GetComponent<Animator>();
-        
     }
+
     public void MouseOverUI()
     {
         charAnimator.SetBool("OnHover", true);
         fx.Play();
     }
+
     public void MouseNotOverUI()
     {
         charAnimator.SetBool("OnHover", false);
         fx.Stop();
     }
-
 }

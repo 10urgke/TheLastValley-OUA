@@ -7,6 +7,7 @@ public interface IEnemyState
     void Execute();
     void Exit();
 }
+
 public class IdleState : IEnemyState
 {
     private Enemy enemy;
@@ -19,8 +20,6 @@ public class IdleState : IEnemyState
         this.enemy.navMeshAgent.speed = 0;
         this.enemy.target = null;
         this.enemy.StartCoroutine(enemy.ChangeStateAfterTime("WalkingState", 2f));
-
-
     }
     public void Execute()
     {
@@ -42,15 +41,14 @@ public class WalkingState : IEnemyState
         this.enemy.animManager.SetSpeed(0.5f);
         this.enemy.navMeshAgent.speed = enemy.speed / 2;
         this.enemy.SetDestination();
-
     }
 
     public void Execute()
     {
         if (enemy.navMeshAgent.remainingDistance < 1f && enemy.photonView.IsMine)
             enemy.GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "IdleState");
-
     }
+
     public void Exit()
     {
         //enemy.StopAllCoroutines();
@@ -78,11 +76,13 @@ public class RunningState : IEnemyState
         if (enemy.target != null)
         {
             enemy.SetDestination(enemy.target);
+
             if (enemy.navMeshAgent.remainingDistance < enemy.attackRange)
             {
                 enemy.animManager.SetSpeed(0f);
                 enemy.navMeshAgent.speed = 0f;
             }
+
             else
             {
                 enemy.animManager.SetSpeed(1f);
@@ -92,27 +92,30 @@ public class RunningState : IEnemyState
             enemy.attackTimer += Time.deltaTime;
             enemy.attackCooldownBarSlider.value = enemy.attackTimer;
         }
+
         else if (enemy.photonView.IsMine)
         {
             enemy.GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "IdleState");
         }
+
         if (enemy.navMeshAgent.remainingDistance < enemy.attackRange && enemy.attackTimer > enemy.attackCooldown)
         {
             if (!enemy.animManager.IsInState("GetHit") || !enemy.animManager.IsInState("Attack"))
                 if (enemy.photonView.IsMine)
                     enemy.GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "AttackingState");
-
         }
     }
+
     public void Exit()
     {
         //enemy.StopAllCoroutines();
     }
-
 }
+
 public class AttackingState : IEnemyState
 {
     private Enemy enemy;
+
     public void Enter(Enemy enemy)
     {
         this.enemy = enemy;
@@ -125,9 +128,11 @@ public class AttackingState : IEnemyState
         {
             enemy.GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "RunningState");
         }
+
         else if (enemy.photonView.IsMine)
             enemy.GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "IdleState");
     }
+
     public void Exit()
     {
         //enemy.StopAllCoroutines();
@@ -136,6 +141,7 @@ public class AttackingState : IEnemyState
 public class DyingState : IEnemyState
 {
     private Enemy enemy;
+
     public void Enter(Enemy enemy)
     {
         //Debug.Log("Enemy is dying");
@@ -150,6 +156,7 @@ public class DyingState : IEnemyState
     public void Execute()
     {
     }
+
     public void Exit()
     {
         //enemy.StopAllCoroutines();

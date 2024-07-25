@@ -31,6 +31,7 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
     public bool sprintBlock;
     public bool isCarrying;
     public bool isDead = false;
+
     [Space]
     public float health = 100f;
     public Slider heathBarSelf;
@@ -90,8 +91,8 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
                 if (animationWalkSpeed < 1f)
                     animationWalkSpeed += Time.deltaTime;
                 animationManager.SetSpeed(animationWalkSpeed);
-
             }
+
             else
             {
                 if (animationWalkSpeed > 0.52f)
@@ -103,6 +104,7 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
 
             characterController.Move(moveDirection * currentSpeed * Time.deltaTime);
         }
+
         else
         {
             if (animationWalkSpeed > 0f)
@@ -110,11 +112,11 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
                 animationWalkSpeed -= Time.deltaTime;
                 animationManager.SetSpeed(animationWalkSpeed);
             }
-
         }
 
         if (characterController.isGrounded)
             velocity.y = -2f;
+
         else
             velocity.y += gravity * Time.deltaTime;
 
@@ -125,12 +127,11 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
     {
         if (animationManager.animator.GetBool("Carry") || animationManager.animator.GetBool("Second"))
             return;
+
         if (Input.GetButtonDown("Jump") && characterController.isGrounded)
         {
             animationManager.SetTrigger("Jump");
-            StartCoroutine(JumpCoroutine());
-            //velocity.y += Mathf.Sqrt(-2f * gravity);
-            
+            StartCoroutine(JumpCoroutine());  
         }
     }
 
@@ -139,11 +140,13 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         cameraTransform.Rotate(Vector3.up, mouseX);
     }
+
     private IEnumerator JumpCoroutine()
     {
         yield return new WaitForSeconds(jumpDelay);
         float elapsedTime = 0f;
         float initialY = transform.position.y;
+
         while (elapsedTime < jumpDuration)
         {
             float newY = Mathf.Lerp(initialY, initialY + jumpHeight, elapsedTime / jumpDuration);
@@ -152,60 +155,70 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
             yield return null;
         }
     }
+
     [PunRPC]
     public void TakeDamage(float amount)
     {
         health -= amount;
+
         if (photonView.IsMine)
         {
             photonView.RPC("AdjustHealthBars", RpcTarget.All);
             if(health < 1)
                 photonView.RPC("Die", RpcTarget.All);
-        }
-            
+        }      
     }
+
     [PunRPC]
     public void GetHeal(float amount)
     {
         health += amount;
+
         if (photonView.IsMine)
             GetComponent<PhotonView>().RPC("AdjustHealthBars", RpcTarget.All);
     }
+
     [PunRPC]
     public void AdjustHealthBars()
     {
         heathBarSelf.value = health;
         heathBarForOthers.value = health;
     }
+
     [PunRPC]
     public void Die()
     {
         isDead = true;
-        //animationManager.SetWalkStatus(false);
+
         if (animationManager != null)
         {
             animationManager.SetDeathStatus(true);
         }
+
         if(photonView.IsMine)
             gameManager.CheckAllPlayersDead();
     }
+
     [PunRPC]
     public void Revive()
     {
         isDead = false;
         health = 100f; 
+
         if (photonView.IsMine)
             GetComponent<PhotonView>().RPC("AdjustHealthBars", RpcTarget.All);
-        //animationManager.SetWalkStatus(true);
+
         if (animationManager != null)
         {
             animationManager.SetDeathStatus(false);
         }
+
         if (helpPanel != null)
         {
             helpPanel.SetActive(false);
         }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.TryGetComponent<MagicBolt>(out MagicBolt magicBolt))
@@ -218,8 +231,10 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
     {
         if(other.TryGetComponent<ThirdPersonCharacterController>(out ThirdPersonCharacterController controller))
         {
-            if (controller.isDead){
+            if (controller.isDead)
+            {
                 controller.helpPanel.SetActive(true);
+
                 if (Input.GetKeyDown(KeyCode.F))
                     other.GetComponent<PhotonView>().RPC("Revive", RpcTarget.All);
             }        

@@ -18,10 +18,12 @@ public class Arrow : MonoBehaviourPun
         yield return new WaitForSeconds(lifeTime);
         ReturnToPool();
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         ReturnToPool();
     }
+
     private void ReturnToPool()
     {
         if (photonView.IsMine)

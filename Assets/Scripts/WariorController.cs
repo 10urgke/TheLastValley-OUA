@@ -17,17 +17,22 @@ public class WariorController : ThirdPersonCharacterController
     {
         swordCollider.enabled = false;
         sword.damage = damage;
+
         base.Start();
     }
+
     protected override void Update()
     {
         base.Update();
+
         HandleSecondStatus();
         HandleCarryStatus();
+
         if (Input.GetButtonDown("Fire1") && !isAttacking)
         {
             if (animationManager.animator.GetBool("Carry"))
                 return;
+
             else if (animationManager.animator.GetBool("Second"))
             {
                 swordCollider.enabled = true;
@@ -36,6 +41,7 @@ public class WariorController : ThirdPersonCharacterController
                 isAttacking = true;
                 StartCoroutine(SecondAttackCoroutine());
             }
+
             else
             {
                 swordCollider.enabled = true;
@@ -46,18 +52,20 @@ public class WariorController : ThirdPersonCharacterController
             }        
         }
     }
+
     private void HandleSecondStatus()
     {
         if (animationManager.animator.GetBool("Carry"))
             return;
+
         if (Input.GetButtonDown("Fire2"))
         {
             sprintBlock = true;
             animationManager.SetWalkStatus(false);
             animationManager.SetSecondStatus(true);
             animationManager.SetCarryStatus(false);
-
         }
+
         if (Input.GetButtonUp("Fire2"))
         {
             animationManager.SetWalkStatus(true);
@@ -70,6 +78,7 @@ public class WariorController : ThirdPersonCharacterController
     {
         if (animationManager.animator.GetBool("Second"))
             return;
+
         if (isCarrying)
         {
             sprintBlock = true;
@@ -78,6 +87,7 @@ public class WariorController : ThirdPersonCharacterController
             animationManager.SetCarryStatus(true);
 
         }
+
         else if (!isCarrying)
         {
             animationManager.SetWalkStatus(true);
@@ -92,11 +102,13 @@ public class WariorController : ThirdPersonCharacterController
         yield return new WaitForSeconds(waitTimeForAttack + waitTimeForNextAttack);
         isAttacking = false;
     }
+
     private IEnumerator SecondAttackCoroutine()
     {
         yield return new WaitForSeconds(waitTimeForNextAttack);
         isAttacking = false;       
     }
+
     public void SetSwordColDeactive()
     {
         swordCollider.enabled = false;
