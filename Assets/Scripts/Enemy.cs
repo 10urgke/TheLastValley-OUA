@@ -24,6 +24,10 @@ public class Enemy : MonoBehaviourPun
 
     //for villager quest
     public VillagerQuest villager;
+
+    //for spawn quest
+    public SpawnQuestManager spawnQuest;
+
     private void Awake()
     {
         animManager = GetComponent<AnimationManager>();
