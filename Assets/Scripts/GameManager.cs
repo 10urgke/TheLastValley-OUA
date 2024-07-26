@@ -58,14 +58,14 @@ public class GameManager : MonoBehaviourPun
     {
         int minutes = Mathf.FloorToInt(nextQuestRemainingTime / 60F);
         int seconds = Mathf.FloorToInt(nextQuestRemainingTime % 60F);
-        timerText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
+        timerText.text = string.Format("Next Quest: {0:0}:{1:00}", minutes, seconds);
     }
 
     private void UpdateQuestTimerUI()
     {
         int minutes = Mathf.FloorToInt(questRemainingTime / 60F);
         int seconds = Mathf.FloorToInt(questRemainingTime % 60F);
-        timerText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
+        timerText.text = string.Format("End Of World: {0:0}:{1:00}", minutes, seconds);
     }
 
     public void StartNextQuestTimer()

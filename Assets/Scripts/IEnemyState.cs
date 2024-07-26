@@ -75,20 +75,23 @@ public class RunningState : IEnemyState
     {
         if (enemy.target != null)
         {
-            enemy.SetDestination(enemy.target);
-
-            if (enemy.navMeshAgent.remainingDistance < enemy.attackRange)
+            if (enemy.photonView.IsMine)
             {
-                enemy.animManager.SetSpeed(0f);
-                enemy.navMeshAgent.speed = 0f;
-            }
+                enemy.SetDestination(enemy.target);
 
-            else
-            {
-                enemy.animManager.SetSpeed(1f);
-                enemy.navMeshAgent.speed = enemy.speed;
-            }
+                if (enemy.navMeshAgent.remainingDistance < enemy.attackRange)
+                {
+                    enemy.animManager.SetSpeed(0f);
+                    enemy.navMeshAgent.speed = 0f;
+                }
 
+                else
+                {
+                    enemy.animManager.SetSpeed(1f);
+                    enemy.navMeshAgent.speed = enemy.speed;
+                }
+            }
+                
             enemy.attackTimer += Time.deltaTime;
             enemy.attackCooldownBarSlider.value = enemy.attackTimer;
         }

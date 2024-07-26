@@ -24,8 +24,10 @@ public class Arrow : MonoBehaviourPun
         ReturnToPool();
     }
 
+
     private void ReturnToPool()
     {
+        //pooling is complicated with photon pun(no time for research), i guess photon already has a pool for network objects
         if (photonView.IsMine)
             PhotonNetwork.Destroy(gameObject);
     }

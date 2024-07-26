@@ -15,12 +15,11 @@ public class VillagerQuestManager : MonoBehaviourPun
     public List<Vector3> firstEnemiesPos;
     public List<Vector3> secondEnemiesPos;
     public bool questRunning;
-    private void Start()
+    private void Awake()
     {
         villagerStartPosition = villager.transform.localPosition;
         gameManager = FindAnyObjectByType<GameManager>();
         questRunning = false;
-
     }
 
     public void QuestStart()
