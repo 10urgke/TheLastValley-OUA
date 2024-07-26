@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d08953c76643a8340bfe2a423766ed37
   - enabled: 1
+    path: Assets/Scenes/Terra.unity
+    guid: fc1a93540550471409f8455aea3d4c8e
+  - enabled: 1
     path: Assets/Scenes/NetworkTest.unity
     guid: 69f3500fad2375e46bcf1971f371a836
   - enabled: 1

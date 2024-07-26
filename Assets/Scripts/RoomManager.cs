@@ -7,10 +7,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject player;
     [SerializeField] private string roomName = "test";
-    [SerializeField] private Vector3 spawnPoint = new Vector3(0,5,0);
+    [SerializeField] private Vector3 spawnPoint;
     [SerializeField] private GameObject enemy;
     void Start()
     {
+        spawnPoint = new Vector3(445 + Random.Range(-5, +5), 5, 455 + Random.Range(-5, +5));
         DontDestroyOnLoad(gameObject);
     }
 
@@ -39,7 +40,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         base.OnJoinedLobby();
-        SceneManager.LoadScene("NetworkTest");
+        SceneManager.LoadScene("Terra");
         PhotonNetwork.JoinOrCreateRoom(roomName, null,null);       
     }
 
