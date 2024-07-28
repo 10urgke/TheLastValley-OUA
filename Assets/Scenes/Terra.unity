@@ -3021,6 +3021,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 5928856841479118696, guid: 6a458fd87972a8746a2e3252b98f91ff,
+        type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8835473332882876427, guid: 6a458fd87972a8746a2e3252b98f91ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4090,6 +4095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417838988286975836, guid: 533330282ec5d2b4e9c6f00f0395f22b,
+        type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6680930197464772629, guid: 533330282ec5d2b4e9c6f00f0395f22b,
         type: 3}

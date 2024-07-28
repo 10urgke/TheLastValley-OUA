@@ -14,6 +14,7 @@ public class VillagerQuest : MonoBehaviourPun
     public GameObject showHelpPanel;
     public bool isDying;
     public VillagerQuestManager questManager;
+    public Transform destination;
     private void Awake()
     {
         animManager = GetComponent<AnimationManager>();
@@ -24,6 +25,7 @@ public class VillagerQuest : MonoBehaviourPun
         {
             animManager.animator = GetComponent<Animator>();
         }
+
         healthBar.maxValue = health;
         healthBar.value = health;
     }
@@ -31,14 +33,19 @@ public class VillagerQuest : MonoBehaviourPun
     private void OnEnable()
     {     
         if (photonView.IsMine)
-            navMeshAgent.SetDestination(questManager.destination.localPosition);
-           
+            navMeshAgent.SetDestination(destination.position);
+
+        Debug.Log($"Destination set to: {destination.position}");
+
         Dying();       
     }
 
     private void Update()
     {
-        if(navMeshAgent.remainingDistance < 1f && photonView.IsMine)
+        if (navMeshAgent.remainingDistance == 0)
+            return;
+
+        if (navMeshAgent.remainingDistance < 1f && photonView.IsMine)
         {
             Debug.Log(navMeshAgent.remainingDistance);
             Debug.Log("koylu quest bitti");
@@ -73,7 +80,7 @@ public class VillagerQuest : MonoBehaviourPun
     public void Dying()
     {
         if (photonView.IsMine)
-            navMeshAgent.SetDestination(questManager.destination.localPosition);
+            navMeshAgent.SetDestination(destination.position);
 
         health = healthBar.maxValue;
         isDying = true;

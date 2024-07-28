@@ -40,7 +40,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         base.OnJoinedLobby();
-        SceneManager.LoadScene("Terra");
+        SceneManager.LoadScene("Terra1");
         PhotonNetwork.JoinOrCreateRoom(roomName, null,null);       
     }
 

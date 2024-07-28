@@ -19,6 +19,12 @@ public class Villager : MonoBehaviourPun
     {
         animManager = GetComponent<AnimationManager>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+
+        if (animManager != null && animManager.animator == null)
+        {
+            animManager.animator = GetComponent<Animator>();
+        }
+
         animManager.SetSpeed(0f);
         navMeshAgent.speed = 0;
         idleTime = Random.Range(idleTimeMin, idleTimeMax);
