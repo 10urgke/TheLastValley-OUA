@@ -45,7 +45,7 @@ public class WalkingState : IEnemyState
 
     public void Execute()
     {
-        if (enemy.navMeshAgent.remainingDistance < 1f && enemy.photonView.IsMine)
+        if (enemy.navMeshAgent.remainingDistance < enemy.attackRange && enemy.photonView.IsMine)
             enemy.GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "IdleState");
     }
 
