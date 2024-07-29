@@ -22,11 +22,16 @@ public class Enemy : MonoBehaviourPun
 
     [SerializeField] private IEnemyState currentState;
 
+    public bool isDying = false;
+
     //for villager quest
     public VillagerQuest villager;
 
     //for spawn quest
     public SpawnQuestManager spawnQuest;
+
+    //for management enemy camps
+    public EnemyManager enemyManager;
 
     private void Awake()
     {
@@ -61,20 +66,23 @@ public class Enemy : MonoBehaviourPun
 
     private void OnEnable()
     {
+        health = healthBarSlider.maxValue;
+        healthBarSlider.value = health;
+
+        if (!healthBarSlider.gameObject.activeInHierarchy || !attackCooldownBarSlider.gameObject.activeInHierarchy)
+        {
+            healthBarSlider.gameObject.SetActive(true);
+            attackCooldownBarSlider.gameObject.SetActive(true);
+        }
+
         if (villager == null)
+        {
+            target = null;
             ChangeState(new IdleState());
+        }          
 
         else
-        {
-            health = healthBarSlider.maxValue;
-            healthBarSlider.value = health;
-
-            if(!healthBarSlider.gameObject.activeInHierarchy || !attackCooldownBarSlider.gameObject.activeInHierarchy)
-            {
-                healthBarSlider.gameObject.SetActive(true);
-                attackCooldownBarSlider.gameObject.SetActive(true);
-            }
-                
+        {                                  
             target = villager.gameObject;
             ChangeState(new RunningState());
         }
@@ -82,20 +90,18 @@ public class Enemy : MonoBehaviourPun
 
     private void Update()
     {
-        currentState.Execute();
-
-        //test for taking damage over the network
-        if (Input.GetKeyDown(KeyCode.K) && photonView.IsMine)
-        {
-            GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, 10f);
-        }      
+        currentState.Execute();   
     }
 
     #region states
     public void ChangeState(IEnemyState newState)
     {
+        if(isDying)
+            return;
+
         if (currentState != null)
             currentState.Exit();
+
         currentState = newState;
         currentState.Enter(this);
     }
@@ -163,13 +169,17 @@ public class Enemy : MonoBehaviourPun
     public void Death()
     {
         animManager.SetTrigger("Death");
-        //Debug.Log("Death func");
-        //Destroy(gameObject, 5f);
-        if(villager != null && photonView.IsMine)
-            StartCoroutine(FakeDeathAfterSecsOnNetwork(5f));
 
-        else if (photonView.IsMine)
-            StartCoroutine(DeathAfterSecsOnNetwork(5f));
+        if(photonView.IsMine)
+        {
+            if (villager != null || enemyManager != null)
+            {
+                StartCoroutine(FakeDeathAfterSecsOnNetwork(5f));
+            }
+
+            else
+                StartCoroutine(DeathAfterSecsOnNetwork(5f));
+        }          
     }
 
     public IEnumerator DeathAfterSecsOnNetwork(float seconds)
@@ -188,7 +198,6 @@ public class Enemy : MonoBehaviourPun
     {
         if(photonView.IsMine)
         {
-            Debug.Log("death");
             PhotonNetwork.Destroy(gameObject);
         }
             
@@ -196,15 +205,17 @@ public class Enemy : MonoBehaviourPun
     [PunRPC]
     public void FakeDeathOnNetwork()
     {
-        Debug.Log("fake death");
+        if (enemyManager != null)
+            enemyManager.EnemyDeath(gameObject);
+
+        isDying = false;
         gameObject.SetActive(false);
     }
 
     [PunRPC]
     public void Attack()
     {
-        animManager.SetTrigger("Attack");
-        //Debug.Log("Attack to " + target.name);      
+        animManager.SetTrigger("Attack");  
 
         if (photonView.IsMine)
         {
@@ -235,7 +246,7 @@ public class Enemy : MonoBehaviourPun
 
     private void OnTriggerStay(Collider other)
     {
-        if (target == null)
+        if (target == null && !(currentState is DyingState))
         {
             if (other.GetComponent<ThirdPersonCharacterController>() != null)
             {
@@ -251,6 +262,7 @@ public class Enemy : MonoBehaviourPun
             LeaveTarget();
         }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (photonView.IsMine)
@@ -306,7 +318,6 @@ public class Enemy : MonoBehaviourPun
 
             else
             {
-                //test for instantiate
                 var dests = gameObject.transform.parent.GetChild(0);
                 foreach (Transform dest in dests.GetComponentInChildren<Transform>())
                 {

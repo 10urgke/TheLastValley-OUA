@@ -1649,11 +1649,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ad8e16a6204fb4aab1afeb13ba6e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 150
+  health: 100
   damage: 10
   healthBarSlider: {fileID: 3264798959816738056}
   attackCooldownBarSlider: {fileID: 967797015777616642}
-  attackCooldown: 5
+  attackCooldown: 8
   attackTimer: 0
   speed: 3
   animManager: {fileID: 0}
@@ -1661,6 +1661,9 @@ MonoBehaviour:
   target: {fileID: 0}
   attackRange: 2
   destinations: []
+  villager: {fileID: 0}
+  spawnQuest: {fileID: 0}
+  enemyManager: {fileID: 0}
 --- !u!195 &821418082624067013
 NavMeshAgent:
   m_ObjectHideFlags: 0

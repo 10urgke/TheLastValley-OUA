@@ -153,6 +153,7 @@ public class DyingState : IEnemyState
         this.enemy.navMeshAgent.speed = 0f;
         this.enemy.healthBarSlider.gameObject.SetActive(false);
         this.enemy.attackCooldownBarSlider.gameObject.SetActive(false);
+        this.enemy.isDying = true;
         this.enemy.Death();
     }
 
@@ -162,6 +163,5 @@ public class DyingState : IEnemyState
 
     public void Exit()
     {
-        //enemy.StopAllCoroutines();
     }
 }
