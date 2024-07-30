@@ -11,10 +11,13 @@ public class GameManager : MonoBehaviourPun
     public float nextQuestRemainingTime;
     public float questTimeDuration = 300f;
     public float questRemainingTime;
-    private bool isQuestRunning = false;
-    private bool isNextQuestTimerRunning = false;
+    public bool isQuestRunning = false;
+    public bool isNextQuestTimerRunning = false;
     private GameObject currentQuest;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI questCountText;
+    public int questCount = 0;
+    public GameObject finalBoss;
 
     private void Update()
     {
@@ -43,15 +46,22 @@ public class GameManager : MonoBehaviourPun
             {
                 questRemainingTime = 0;
                 isQuestRunning = false;
-                photonView.RPC("EndGame", RpcTarget.All);
+                if(photonView.IsMine)
+                    photonView.RPC("EndGame", RpcTarget.All);
             }
             UpdateQuestTimerUI();
         }
     }
-
+     
     public void SetTimerText(TextMeshProUGUI TMPtext)
     {
         timerText = TMPtext;
+    }
+
+    public void SetQuestCountText(TextMeshProUGUI TMPtext)
+    {
+        questCountText = TMPtext;
+        questCountText.color = Color.cyan;
     }
 
     private void UpdateNextQuestTimerUI()
@@ -98,16 +108,21 @@ public class GameManager : MonoBehaviourPun
         if (PhotonNetwork.IsMasterClient)
         {
             isQuestRunning = false;
-            //currentQuest.SetActive(false);
-            StartNextQuestTimer();
+            questCount++;
+            photonView.RPC("UpdateQuestCount", RpcTarget.All, questCount);
+
+            if (questCount < 3)
+                StartNextQuestTimer();
         }
     }
 
     [PunRPC]
     private void SyncNextQuestTimer(float time, bool running)
     {
+        Debug.Log($"SyncNextQuestTimer called with time: {time} and running: {running}");
         nextQuestRemainingTime = time;
         isNextQuestTimerRunning = running;
+        isQuestRunning = !running;
         if (isNextQuestTimerRunning)
         {
             timerText.color = Color.yellow;
@@ -117,9 +132,10 @@ public class GameManager : MonoBehaviourPun
 
     [PunRPC]
     private void SyncQuestTimer(float time, bool running, int questIndex)
-    {
+    {       
         questRemainingTime = time;
         isQuestRunning = running;
+        isNextQuestTimerRunning = !running;
         currentQuest = quests[questIndex];
         currentQuest.SetActive(true);
         if (isQuestRunning)
@@ -132,7 +148,32 @@ public class GameManager : MonoBehaviourPun
     [PunRPC]
     private void EndGame()
     {
-        Debug.Log("End game");
+        Cursor.lockState = CursorLockMode.Confined;
+        PhotonNetwork.LoadLevel("Fail");
+    }
+    [PunRPC]
+    private void EndGameTwo()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        PhotonNetwork.LoadLevel("FailDead");
+    }
+
+    [PunRPC]
+    private void UpdateQuestCount(int count)
+    {
+        questCount = count;
+        questCountText.text = "Completed Quests: " + questCount;
+
+        if (questCount >= 3)
+        {
+            isQuestRunning = false;
+            isNextQuestTimerRunning = false;
+            timerText.text = "The End is Near";
+            timerText.color = Color.cyan;
+            questCountText.color = Color.red;
+            questCountText.text = "Destroy Boss!";
+            finalBoss.SetActive(true);
+        }
     }
 
     public void CheckAllPlayersDead()
@@ -156,7 +197,6 @@ public class GameManager : MonoBehaviourPun
     [PunRPC]
     private void AllPlayersDead()
     {
-        // load end scene or different one
-        photonView.RPC("EndGame", RpcTarget.All);
+        photonView.RPC("EndGameTwo", RpcTarget.All);
     }
 }

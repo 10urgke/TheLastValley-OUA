@@ -33,6 +33,8 @@ public class Enemy : MonoBehaviourPun
     //for management enemy camps
     public EnemyManager enemyManager;
 
+    public bool isBoos;
+
     private void Awake()
     {
         animManager = GetComponent<AnimationManager>();
@@ -148,8 +150,14 @@ public class Enemy : MonoBehaviourPun
 
         if(health <= 0)
         {
-            if (photonView.IsMine)
+            if (photonView.IsMine && !isBoos)
                 GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "DyingState");
+            else if (isBoos)
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+                PhotonNetwork.LoadLevel("Success");
+            }
+                
         }   
 
         else

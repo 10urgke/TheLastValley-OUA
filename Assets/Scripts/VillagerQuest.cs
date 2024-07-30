@@ -141,6 +141,7 @@ public class VillagerQuest : MonoBehaviourPun
     public void QuestFinished()
     {
         Dying();
-        questManager.GetComponent<PhotonView>().RPC("CompleteQuest",RpcTarget.All);
+        if(photonView.IsMine)
+            questManager.GetComponent<PhotonView>().RPC("CompleteQuest",RpcTarget.All);
     }
 }

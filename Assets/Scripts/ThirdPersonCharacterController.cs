@@ -38,6 +38,7 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
     public Slider heathBarForOthers;
     public GameObject helpPanel;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI questCountText;
     public GameManager gameManager;
 
     protected virtual void Start()
@@ -51,6 +52,7 @@ public class ThirdPersonCharacterController : MonoBehaviourPun
         AdjustHealthBars();
         gameManager = FindAnyObjectByType<GameManager>();
         gameManager.SetTimerText(timerText);
+        gameManager.SetQuestCountText(questCountText);
     }
 
     protected virtual void Update()

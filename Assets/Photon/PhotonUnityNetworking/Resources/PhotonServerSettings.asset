@@ -75,6 +75,9 @@ MonoBehaviour:
   - SyncQuestTimer
   - FakeDeathOnNetwork
   - CompleteQuest
+  - ShowFinalBossMessage
+  - UpdateQuestCount
+  - EndGameTwo
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
