@@ -6,11 +6,14 @@ using UnityEngine;
 
 public class PlayerSetup : MonoBehaviour
 {
+    [Header("Make deactive on prefab")]
     public GameObject camOne;
     public GameObject camTwo;
     public ThirdPersonCharacterController characterController;
-    public AnimTestScript animTest;
+    public GameObject canvasForYourself;
 
+    [Header("Make active on prefab")]
+    public GameObject canvasForOthers;
 
     public void IsLocalPlayer(bool isActive)
     {
@@ -18,8 +21,9 @@ public class PlayerSetup : MonoBehaviour
         camOne.SetActive(isActive);
         camTwo.SetActive(isActive);
         characterController.enabled = isActive;
-        animTest.enabled = isActive;
+        canvasForYourself.SetActive(isActive);
 
         //Activated in the editor
-    }
+        canvasForOthers.SetActive(!isActive);
+}
 }

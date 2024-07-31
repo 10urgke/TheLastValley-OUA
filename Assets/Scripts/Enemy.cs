@@ -21,41 +21,93 @@ public class Enemy : MonoBehaviourPun
     [SerializeField] private List<Transform> destinations;
 
     [SerializeField] private IEnemyState currentState;
-    private void Start()
+
+    public bool isDying = false;
+
+    //for villager quest
+    public VillagerQuest villager;
+
+    //for spawn quest
+    public SpawnQuestManager spawnQuest;
+
+    //for management enemy camps
+    public EnemyManager enemyManager;
+
+    public bool isBoos;
+
+    private void Awake()
     {
         animManager = GetComponent<AnimationManager>();
-        healthBarSlider.value = health;
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
         healthBarSlider.maxValue = health;
+        healthBarSlider.value = health;
         healthBarSlider.minValue = 0;
+
         attackCooldownBarSlider.maxValue = attackCooldown;
         attackTimer = 0;
         attackCooldownBarSlider.value = attackTimer;
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        ChangeState(new IdleState());
-        //Debug.Log("enemy created");
+
+        if (animManager != null && animManager.animator == null)
+        {
+            animManager.animator = GetComponent<Animator>();
+        }
     }
+
+    private void Start()
+    {        
+        if(villager == null)
+            ChangeState(new IdleState());
+
+        else
+        {
+            target = villager.gameObject;
+            ChangeState(new RunningState());
+        }
+    }
+
+    private void OnEnable()
+    {
+        health = healthBarSlider.maxValue;
+        healthBarSlider.value = health;
+
+        if (!healthBarSlider.gameObject.activeInHierarchy || !attackCooldownBarSlider.gameObject.activeInHierarchy)
+        {
+            healthBarSlider.gameObject.SetActive(true);
+            attackCooldownBarSlider.gameObject.SetActive(true);
+        }
+
+        if (villager == null)
+        {
+            target = null;
+            ChangeState(new IdleState());
+        }          
+
+        else
+        {                                  
+            target = villager.gameObject;
+            ChangeState(new RunningState());
+        }
+    }
+
     private void Update()
     {
-        currentState.Execute();
-
-        //test for taking damage over the network
-        if (Input.GetKeyDown(KeyCode.K) && photonView.IsMine)
-        {
-            GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, 10f);
-        }
-            
-        
-
-            
+        currentState.Execute();   
     }
+
     #region states
     public void ChangeState(IEnemyState newState)
     {
+        if(isDying)
+            return;
+
         if (currentState != null)
             currentState.Exit();
+
         currentState = newState;
         currentState.Enter(this);
     }
+
     [PunRPC]
     public void ChangeStateRPC(string stateName)
     {
@@ -79,85 +131,138 @@ public class Enemy : MonoBehaviourPun
             default:
                 Debug.LogError("Check Name");
                 break;
-        }
-            
+        }        
     }
+
     public IEnumerator ChangeStateAfterTime(string stateName, float time)
     {
         yield return new WaitForSeconds(time);
         if (photonView.IsMine)
             GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, stateName);
     }
-    
     #endregion
+
     [PunRPC]
     public void TakeDamage(float amount)
     {
-        Debug.Log("Take damage func");
         health -= amount;
         healthBarSlider.value = health;
+
         if(health <= 0)
         {
-            if (photonView.IsMine)
+            if (photonView.IsMine && !isBoos)
                 GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "DyingState");
+            else if (isBoos)
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+                PhotonNetwork.LoadLevel("Success");
+            }
+                
         }   
+
         else
         {
             if(!animManager.IsInState("GetHit") || !animManager.IsInState("Attack"))
                 animManager.SetTrigger("GetHit");                  
-        }
-            
+        }   
     }
+
     [PunRPC]
     public void UpdateAttackTimerOnNetwork()
     {
         attackTimer = 0;
         attackCooldownBarSlider.value = attackTimer;
-        Debug.Log("update attack slider func");
     }
+
     public void Death()
     {
         animManager.SetTrigger("Death");
-        //Debug.Log("Death func");
-        //pool for different areas
-        Destroy(gameObject, 5f);
-        //if (photonView.IsMine)
-        //    StartCoroutine(DeathAfterSecsOnNetwork(5f));
+
+        if(photonView.IsMine)
+        {
+            if (villager != null || enemyManager != null)
+            {
+                StartCoroutine(FakeDeathAfterSecsOnNetwork(5f));
+            }
+
+            else
+                StartCoroutine(DeathAfterSecsOnNetwork(5f));
+        }          
     }
 
-    //for networked instantiated objects
     public IEnumerator DeathAfterSecsOnNetwork(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         GetComponent<PhotonView>().RPC("DeathOnNetwork", RpcTarget.All);
     }
+    public IEnumerator FakeDeathAfterSecsOnNetwork(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        GetComponent<PhotonView>().RPC("FakeDeathOnNetwork", RpcTarget.All);
+    }
+
     [PunRPC]
     public void DeathOnNetwork()
     {
-        PhotonNetwork.Destroy(gameObject);
+        if(photonView.IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
+            
     }
+    [PunRPC]
+    public void FakeDeathOnNetwork()
+    {
+        if (enemyManager != null)
+            enemyManager.EnemyDeath(gameObject);
+
+        isDying = false;
+        gameObject.SetActive(false);
+    }
+
     [PunRPC]
     public void Attack()
     {
-        animManager.SetTrigger("Attack");
-        //Debug.Log("Attack to " + target.name);
+        animManager.SetTrigger("Attack");  
+
         if (photonView.IsMine)
-            GetComponent<PhotonView>().RPC("UpdateAttackTimerOnNetwork", RpcTarget.Others);
+        {
+            target.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
+            GetComponent<PhotonView>().RPC("UpdateAttackTimerOnNetwork", RpcTarget.Others);         
+        }
+            
         attackTimer = 0;
         attackCooldownBarSlider.value = attackTimer;
+
+        if(villager != null)
+        {
+            if (target == villager.gameObject && villager.isDying == true)
+                target = null;
+        }      
     }
     
     private void OnTriggerEnter(Collider other)
     {
         if(target == null)
         {
-            if (other.GetComponent<PlayerAnimationManager>() != null)
+            if (other.GetComponent<ThirdPersonCharacterController>() != null)
             {
                 SetTarget(other.gameObject);
-
             }
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (target == null && !(currentState is DyingState))
+        {
+            if (other.GetComponent<ThirdPersonCharacterController>() != null)
+            {
+                SetTarget(other.gameObject);
+            }
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if(target != null &&  other.gameObject == target)
@@ -165,41 +270,70 @@ public class Enemy : MonoBehaviourPun
             LeaveTarget();
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (photonView.IsMine)
+        {
+            if (collision.gameObject.TryGetComponent<Arrow>(out Arrow arrowProjectile))
+            {         
+                GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, arrowProjectile.damage);
+            }
+
+            else if (collision.gameObject.TryGetComponent<MagicBolt>(out MagicBolt magicProjectile))
+            {
+                GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, magicProjectile.damage);
+            }
+
+            else if (collision.gameObject.TryGetComponent<Sword>(out Sword sword))
+            {
+                GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, sword.damage);
+            }
+        }        
+    }
+
     public void SetTarget(GameObject targetObj)
     {
         target = targetObj;
+
         if (photonView.IsMine)
             GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "RunningState");
     }
+
     public void LeaveTarget()
     {
         target = null;
+
         if (photonView.IsMine)
             GetComponent<PhotonView>().RPC("ChangeStateRPC", RpcTarget.All, "IdleState");
     }
+    
     public void SetDestination(GameObject target)
     {
-        navMeshAgent.SetDestination(target.transform.position);
+        //For fix navmesh glich, only the master client will set destination 
+        if (photonView.IsMine)
+            navMeshAgent.SetDestination(target.transform.position);
     }
+
     public void SetDestination()
     {
-        if (destinations.Count > 0)
+        if (photonView.IsMine)
         {
-            navMeshAgent.SetDestination(destinations[Random.Range(0, destinations.Count)].position);
-        }
-        else
-        {
-
-            //might will be spawned in a game object and take its destination locs?
-            //test for instantiate
-            var dests = GameObject.Find("EnemyDest");
-            foreach (Transform dest in dests.GetComponentInChildren<Transform>())
+            if (destinations.Count > 0)
             {
-                destinations.Add(dest);
+                navMeshAgent.SetDestination(destinations[Random.Range(0, destinations.Count)].position);
             }
-            navMeshAgent.SetDestination(destinations[Random.Range(0, destinations.Count)].position);
-        }
-    }
 
+            else
+            {
+                var dests = gameObject.transform.parent.GetChild(0);
+                foreach (Transform dest in dests.GetComponentInChildren<Transform>())
+                {
+                    destinations.Add(dest);
+                }
+                navMeshAgent.SetDestination(destinations[Random.Range(0, destinations.Count)].position);
+            }
+        }         
+    }
 }
 

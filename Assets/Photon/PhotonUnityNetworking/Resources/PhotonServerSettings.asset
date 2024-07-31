@@ -52,6 +52,32 @@ MonoBehaviour:
   - ChangeStateAttacking
   - ChangeStateDying
   - ChangeStateRPC
+  - AdjustHealthBars
+  - GetHeal
+  - ActivateMagic
+  - PlayAttackFx
+  - Heal
+  - SetActiveOnNetwork
+  - ReturnToPool
+  - HealFx
+  - PlayHealFx
+  - GetSelfHeal
+  - UpdateHealthBar
+  - Dying
+  - WalkToDest
+  - QuestFinished
+  - Die
+  - Revive
+  - AllPlayersDead
+  - EndGame
+  - SyncTimer
+  - SyncNextQuestTimer
+  - SyncQuestTimer
+  - FakeDeathOnNetwork
+  - CompleteQuest
+  - ShowFinalBossMessage
+  - UpdateQuestCount
+  - EndGameTwo
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

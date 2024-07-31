@@ -9,15 +9,21 @@ public class PlayerAnimationManager : AnimationManager
     {
         animator.SetBool("Walk", isActive);
     }
+
     public void SetSecondStatus(bool isActive)
     {
         animator.SetBool("Second", isActive);
     }
+
     public void SetCarryStatus(bool isActive)
     {
         animator.SetBool("Carry", isActive);
     }
 
+    public void SetDeathStatus(bool isActive)
+    {
+        animator.SetBool("Death", isActive);
+    }
 
     [PunRPC]
     public void SetTriggerRPC(string triggerName)
