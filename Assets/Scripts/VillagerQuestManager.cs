@@ -15,11 +15,16 @@ public class VillagerQuestManager : MonoBehaviourPun
     public List<Vector3> firstEnemiesPos;
     public List<Vector3> secondEnemiesPos;
     public bool questRunning;
+    public ParticleSystem showLocFx;
     private void Awake()
     {
         villagerStartPosition = villager.transform.localPosition;
         gameManager = FindAnyObjectByType<GameManager>();
         questRunning = false;
+    }
+    private void OnEnable()
+    {
+        showLocFx.Play();
     }
 
     public void QuestStart()
