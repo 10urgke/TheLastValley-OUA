@@ -176,7 +176,10 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 - Zaman odaklı planlama yapmaya devam ettik
 - Süre yetmeyeceği için oyundan bazı unsurları kaldırma konusunda hemfikir olduk.
 
-
+---
+# Sprint 3
+* Geliştirici ekip olarak, tüm oyun mekaniklerini, karakterleri ve seviyeleri başarıyla birleştirerek oyunu tamamladık, oyun videosunu çekip editledik ve projenin planlandığı gibi çalıştığından emin olduk.
+* **Sprint Notları:** Proje yönetimi, toplantı notları ve önemli tarihlerin hatırlatılması için notion; fikir geliştirme, daily scrum, genel konuşmalar ve toplantılar için discord kullanılmaya devam edilmiştir.
 
 
 
