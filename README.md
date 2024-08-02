@@ -28,11 +28,8 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 * Fantazi türü sevenler
 * 7 yaş ve üzeri
   
-## Product Backlog URL
-<details>
-  <summary>Backlog</summary>
-<img src="./ReadmeFolder/backlog..png">
-</details>
+## Dökümanlar
+
 
 ---
 # Sprint 1
