@@ -1,4 +1,10 @@
 # Takım ve Oyun Bilgileri
+## Oyun İsmi
+The Last Valley
+<img src="./ReadmeFolder/logo.png">
+---
+## **Oyun Tanıtım Videosu:** [Tanıtım Videosu](https://www.youtube.com/watch?v=M78SxntTY2c)
+---
 ## Takım İsmi
 Unity 16
 ### Takım Üyeleri
@@ -9,11 +15,9 @@ Unity 16
 | Dinçer Can Elitok    | Developer      | <a href="https://github.com/DincerCanElitok" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/dincer-can-elitok/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a>  |
 | Elif Feyza Güneş | Scrum Master      | <a href="https://github.com/feyza11" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/eliffeyzag%C3%BCne%C5%9F000/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a>  |
 | Ertuğrul Küçükel | Developer     | <a href="https://github.com/ert2855" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/ertu%C4%9Frul-k%C3%BC%C3%A7%C3%BCkel-bb20281a7/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a>  |
-## Oyun İsmi
-Kara Şövalye'nin Laneti (?)
 
 ## Oyun Açıklaması
-Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozmak için birlikte çalıştıkları bir 3D, co-op, RPG, aksiyon oyunudur. Oyuncular, farklı sınıflardan (savaşçı, okçu, büyücü) oluşan kahramanları kontrol eder ve çeşitli görevleri tamamlayarak krallığı eski ihtişamına kavuşturmaya çalışırlar. Oyuncular, lanetli bölgelerdeki yaratıkları temizleyerek, büyülü nesneleri toplayarak ve görevleri tamamlayarak güç kazanırlar. Oyuncular güvenli alanlarda can ve envanter yenileyebilir, NPC’lerden ipuçları alabilir ve co-op oynanış sayesinde görev paylaşımı yaparak düşmanları yenebilir.
+The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelerek mücadele ettiği bir 3D, Multiplayer; Macera – RPG oyunudur. Oyunun amacı, oyuncuların farklı karakter sınıfları (savaşçı, okçu, büyücü) kullanarak takım çalışması ile görevleri tamamlamalıdır. Oyunun hedefleri arasında oyunculara eğlenceli ve sürükleyici bir deneyim sunmak, takım çalışmasını teşvik etmek vardır.
 ## Oyun Özellikleri
 * 3D
 * Multiplayer
@@ -21,34 +25,35 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 * RPG
 * Low Poly
 * Third Person
+* Macera 
 ## Hedef Kitle
 * Co-op oyunlara ilgi duyanlar
 * RPG ve aksiyon oyunu meraklıları
 * Fantazi türü sevenler
+* 7 yaş ve üzeri
   
-## Product Backlog URL
-<details>
-  <summary>Backlog</summary>
-<img src="./ReadmeFolder/backlog2.png">
-</details>
+## Dökümanlar
+* **Proje Başlangıç Dosyası:** [Başlangıç Dosyası](https://docs.google.com/document/d/13iq12gPS0i7qSZTZuIwFuuYqB2ObpJC4xRW2rkaJe4A/edit)
+* **Proje Kapanış Raporu:** [Kapanış Raporu](https://docs.google.com/document/d/1GPYfujtiPGf5Bd0CoiMWsTKSQLPF_EMCP6KgIgRFQ7M/edit)
+* **Product Backlog:** [Backlog](https://docs.google.com/document/d/1wK893vqR6YeycGxKqYDaTwcV0PMFjQAu2SJLVI77iBM/edit#heading=h.xvg4yuhgwkhp)
 
 ---
 # Sprint 1
 * Geliştirici ekip olarak, projenin bütün temel ihtiyaçlarını karşılayabileceğimizi test ettik ve projenin bir sonuca ulaşabileceğine emin olduk.
 * **Sprint Notları:** Proje yönetimi, toplantı notları ve önemli tarihlerin hatırlatılması için notion; fikir geliştirme, daily scrum, genel konuşmalar ve toplantılar için discord kullanılmasına karar verilmiştir.
-<details>
+
   <summary>Sprint Board</summary>
   
   ### Sprint Board
 <img src="./ReadmeFolder/sayfa 1.png">
-</details>
 
-* Sprint içinde tamamlanması beklenen puan 50 olarak belirlenmiştir.
+
+* Sprint içinde tamamlanması beklenen puan 36 olarak belirlenmiştir.
   
-* **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 98 olarak belirlenmiştir. İlk sprint için 50 puan tamamlanarak hedefe ulaşılmıştır.
+* **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 133 olarak belirlenmiştir. İlk sprint için 36 puan tamamlanarak hedefe ulaşılmıştır.
   
 * **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
-<details>
+
   <summary>Daily Scrum, Toplantı ve Fikir Geliştirme Ekran Görüntüleri</summary>
   
   ### Daily Scrum
@@ -60,9 +65,9 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
   ### Fikir Geliştirme
 <img src="./ReadmeFolder/oyun fikri.png">
 
-</details>
 
-<details>
+
+
   <summary>Ürün Durumu</summary>
   
   ### Karakterler
@@ -76,7 +81,6 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 
 
-</details>
 
 ### Sprint Review
 
@@ -106,7 +110,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 * Geliştirici ekip olarak, belirlenen oyun mekaniklerini ve karakter modellerini başarıyla entegre ettik, harita ve çevre tasarımlarının bir kısmını tamamlayarak oyunun temel oynanışını test edilebilir hale getirdik.
 
-<details>
+
   <summary>Sprint Board</summary>
   
 
@@ -117,15 +121,15 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 <img src="./ReadmeFolder/2.png">
 
 
-</details>
 
-* Sprint içinde tamamlanması beklenen puan 36 olarak belirlenmiştir.
+
+* Sprint içinde tamamlanması beklenen puan 71 olarak belirlenmiştir.
   
-* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 98 olarak belirlenmiştir. İkinci sprint için 36 puan tamamlanarak hedefe ulaşılmıştır.
+* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 133 olarak belirlenmiştir. İkinci sprint için 71 puan tamamlanarak hedefe ulaşılmıştır.
   
 * **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
 
-<details>
+
   <summary>Daily Scrum, Toplantı</summary>
   
   ### Daily Scrum
@@ -134,10 +138,9 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
   ### Toplantı
 <img src="./ReadmeFolder/toplantı2.png">
 
-</details>
 
 
-<details>
+
   <summary>Ürün Durumu</summary>
   
   ### Ev, Ağaç Örnekleri
@@ -151,7 +154,6 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 <img src="./ReadmeFolder/üründurumu2.png">
 
-</details>
 
 ### Sprint Review
 
@@ -176,7 +178,72 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 - Zaman odaklı planlama yapmaya devam ettik
 - Süre yetmeyeceği için oyundan bazı unsurları kaldırma konusunda hemfikir olduk.
 
+---
+# Sprint 3
 
+* Geliştirici ekip olarak tüm oyun mekaniklerini, karakterleri ve seviyeleri başarıyla birleştirerek oyunu tamamladık, oyun videosunu çekip editledik ve projenin planlandığı gibi çalıştığından emin olduk.
+
+
+  <summary>Sprint Board</summary>
+  
+
+<img src="./ReadmeFolder/c1.png">
+
+
+
+<img src="./ReadmeFolder/c2.png">
+
+
+
+
+* Sprint içinde tamamlanması beklenen puan 26 olarak belirlenmiştir.
+  
+* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 133 olarak belirlenmiştir. İkinci sprint için 26 puan tamamlanarak hedefe ulaşılmıştır.
+  
+* **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
+
+
+  <summary>Daily Scrum, Toplantı</summary>
+  
+<img src="./ReadmeFolder/toplantı..png">
+
+
+
+  <summary>Ürün Durumu</summary>
+  
+  ### Kamp, Köy
+
+https://github.com/user-attachments/assets/5d9cf844-920b-4c6d-9b70-20975c529f96
+
+  ### Magical Stone Golem
+
+https://github.com/user-attachments/assets/7c794cc1-f560-44a7-a213-e7f84b2b8253
+
+  ### Giriş Ekranı ve Karakter Görüntüsü
+
+<img src="./ReadmeFolder/ooo1.png">
+
+
+
+### Sprint Review
+
+- Köylü NPC'leri ve köylü kurtarma görevi için gerekli kodlar yazıldı ve düşman sınıfı ayarlandı.
+- Ölen oyuncuları F tuşuna basarak geri kaldırma eklendi.
+- Köylü görevindeki senkronizasyon sorunları düzeltildi.
+- Terrain oluşturuldu, AI'lar ve ağaçlar eklendi.
+- Son boss tasarlandı ve oyuna eklendi.
+- Enemy manager yazıldı ve boss sistemi görev sayısına göre ayarlandı.
+- Sahne geçişleri düzenlendi; boss spawnlanacak şekilde ayarlandı.
+- Ana menüdeki FX'ler ve giriş kameraları ayarlandı, görevlerin yerini göstermek için efektler hazırlandı.
+- Oyun ismine karar verildi ve logo hazırlandı.
+
+
+### Sprint Retrospective
+
+- Önceden belirlenen eksik görevlere öncelik tanıyarak hızlıca haritayı birleştirmeye başladık, bu sayede projenin yarım kalma riskini en aza indirdik.
+- Yapılan işleri çift aşamalı bir kontrolden geçirmemiz sayesinde bir işin düzgün olmama veya zaman kaybetme riskini en aza indirmeye devam ettik.
+- Süremiz azaldığı için daily scrumları çoğunlukla sesli bir şekilde yaparken bir yandan da yapılan işleri inceledik.
+  
 
 
 
