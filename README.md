@@ -186,18 +186,18 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
   <summary>Sprint Board</summary>
   
 
-<img src="./ReadmeFolder/1.png">
+<img src="./ReadmeFolder/b1.png">
 
 
 
-<img src="./ReadmeFolder/2.png">
+<img src="./ReadmeFolder/b2.png">
 
 
 </details>
 
-* Sprint içinde tamamlanması beklenen puan 71 olarak belirlenmiştir.
+* Sprint içinde tamamlanması beklenen puan 26 olarak belirlenmiştir.
   
-* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 133 olarak belirlenmiştir. İkinci sprint için 71 puan tamamlanarak hedefe ulaşılmıştır.
+* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 133 olarak belirlenmiştir. İkinci sprint için 26 puan tamamlanarak hedefe ulaşılmıştır.
   
 * **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
 
