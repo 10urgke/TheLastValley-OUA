@@ -186,7 +186,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
   <summary>Sprint Board</summary>
   
 
-<img src="./ReadmeFolder/b1.png">
+<img src="./ReadmeFolder/b11.png">
 
 
 
