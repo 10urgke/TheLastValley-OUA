@@ -1,4 +1,7 @@
 # Takım ve Oyun Bilgileri
+## Oyun İsmi
+The Last Valley
+<img src="./ReadmeFolder/logo.png">
 ## Takım İsmi
 Unity 16
 ### Takım Üyeleri
@@ -9,8 +12,6 @@ Unity 16
 | Dinçer Can Elitok    | Developer      | <a href="https://github.com/DincerCanElitok" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/dincer-can-elitok/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a>  |
 | Elif Feyza Güneş | Scrum Master      | <a href="https://github.com/feyza11" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/eliffeyzag%C3%BCne%C5%9F000/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a>  |
 | Ertuğrul Küçükel | Developer     | <a href="https://github.com/ert2855" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/ertu%C4%9Frul-k%C3%BC%C3%A7%C3%BCkel-bb20281a7/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a>  |
-## Oyun İsmi
-Kara Şövalye'nin Laneti (?)
 
 ## Oyun Açıklaması
 Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozmak için birlikte çalıştıkları bir 3D, co-op, RPG, aksiyon oyunudur. Oyuncular, farklı sınıflardan (savaşçı, okçu, büyücü) oluşan kahramanları kontrol eder ve çeşitli görevleri tamamlayarak krallığı eski ihtişamına kavuşturmaya çalışırlar. Oyuncular, lanetli bölgelerdeki yaratıkları temizleyerek, büyülü nesneleri toplayarak ve görevleri tamamlayarak güç kazanırlar. Oyuncular güvenli alanlarda can ve envanter yenileyebilir, NPC’lerden ipuçları alabilir ve co-op oynanış sayesinde görev paylaşımı yaparak düşmanları yenebilir.
@@ -29,7 +30,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 ## Product Backlog URL
 <details>
   <summary>Backlog</summary>
-<img src="./ReadmeFolder/backlog2.png">
+<img src="./ReadmeFolder/backlog..png">
 </details>
 
 ---
@@ -178,11 +179,63 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 ---
 # Sprint 3
+
 * Geliştirici ekip olarak, tüm oyun mekaniklerini, karakterleri ve seviyeleri başarıyla birleştirerek oyunu tamamladık, oyun videosunu çekip editledik ve projenin planlandığı gibi çalıştığından emin olduk.
-* Sprint içinde tamamlanması beklenen puan 26 olarak belirlenmiştir.
-* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 133 olarak belirlenmiştir. İkinci sprint için 26 puan tamamlanarak hedefe ulaşılmıştır.
+
+<details>
+  <summary>Sprint Board</summary>
   
-* **Sprint Notları:** Proje yönetimi, toplantı notları ve önemli tarihlerin hatırlatılması için notion; fikir geliştirme, daily scrum, genel konuşmalar ve toplantılar için discord kullanılmaya devam edilmiştir.
+
+<img src="./ReadmeFolder/1.png">
+
+
+
+<img src="./ReadmeFolder/2.png">
+
+
+</details>
+
+* Sprint içinde tamamlanması beklenen puan 71 olarak belirlenmiştir.
+  
+* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 133 olarak belirlenmiştir. İkinci sprint için 71 puan tamamlanarak hedefe ulaşılmıştır.
+  
+* **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
+
+<details>
+  <summary>Daily Scrum, Toplantı</summary>
+  
+  ### Daily Scrum
+<img src="./ReadmeFolder/daily.png">
+
+  ### Toplantı
+<img src="./ReadmeFolder/toplantı2.png">
+
+</details>
+
+
+<details>
+  <summary>Ürün Durumu</summary>
+  
+  ### Ev, Ağaç Örnekleri
+<img src="./ReadmeFolder/üründurumu.png">
+
+  ### Magical Stone Golem
+
+<img src="./ReadmeFolder/üründurumu3.png">
+
+  ### Karakterler
+
+<img src="./ReadmeFolder/üründurumu2.png">
+
+</details>
+
+### Sprint Review
+
+- Önc
+
+### Sprint Retrospective
+
+- Gör
 
 
 
