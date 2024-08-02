@@ -180,17 +180,17 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 ---
 # Sprint 3
 
-* Geliştirici ekip olarak, tüm oyun mekaniklerini, karakterleri ve seviyeleri başarıyla birleştirerek oyunu tamamladık, oyun videosunu çekip editledik ve projenin planlandığı gibi çalıştığından emin olduk.
+* Geliştirici ekip olarak tüm oyun mekaniklerini, karakterleri ve seviyeleri başarıyla birleştirerek oyunu tamamladık, oyun videosunu çekip editledik ve projenin planlandığı gibi çalıştığından emin olduk.
 
 <details>
   <summary>Sprint Board</summary>
   
 
-<img src="./ReadmeFolder/b11.png">
+<img src="./ReadmeFolder/c1.png">
 
 
 
-<img src="./ReadmeFolder/b2.png">
+<img src="./ReadmeFolder/c2.png">
 
 
 </details>
