@@ -14,7 +14,7 @@ Unity 16
 | Ertuğrul Küçükel | Developer     | <a href="https://github.com/ert2855" target="_blank"> <img src="./ReadmeFolder/github.png" alt="GitHub" width="30" height="30"> </a> <a href="https://www.linkedin.com/in/ertu%C4%9Frul-k%C3%BC%C3%A7%C3%BCkel-bb20281a7/" target="_blank"> <img src="./ReadmeFolder/linkedin.png" alt="GitHub" width="30" height="30"> </a>  |
 
 ## Oyun Açıklaması
-Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozmak için birlikte çalıştıkları bir 3D, co-op, RPG, aksiyon oyunudur. Oyuncular, farklı sınıflardan (savaşçı, okçu, büyücü) oluşan kahramanları kontrol eder ve çeşitli görevleri tamamlayarak krallığı eski ihtişamına kavuşturmaya çalışırlar. Oyuncular, lanetli bölgelerdeki yaratıkları temizleyerek, büyülü nesneleri toplayarak ve görevleri tamamlayarak güç kazanırlar. Oyuncular güvenli alanlarda can ve envanter yenileyebilir, NPC’lerden ipuçları alabilir ve co-op oynanış sayesinde görev paylaşımı yaparak düşmanları yenebilir.
+The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelerek mücadele ettiği bir 3D, Multiplayer; Macera – RPG oyunudur. Oyunun amacı, oyuncuların farklı karakter sınıfları (savaşçı, okçu, büyücü) kullanarak takım çalışması ile görevleri tamamlamalıdır. Oyunun hedefleri arasında oyunculara eğlenceli ve sürükleyici bir deneyim sunmak, takım çalışmasını teşvik etmek vardır.
 ## Oyun Özellikleri
 * 3D
 * Multiplayer
@@ -22,6 +22,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 * RPG
 * Low Poly
 * Third Person
+* Macera - Aksiyon
 ## Hedef Kitle
 * Co-op oyunlara ilgi duyanlar
 * RPG ve aksiyon oyunu meraklıları
@@ -29,7 +30,9 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 * 7 yaş ve üzeri
   
 ## Dökümanlar
-
+* **Proje Başlangıç Dosyası:** [Başlangıç Dosyası](https://docs.google.com/document/d/13iq12gPS0i7qSZTZuIwFuuYqB2ObpJC4xRW2rkaJe4A/edit)
+* **Proje Kapanış Raporu:** [Kapanış Raporu](https://docs.google.com/document/d/1GPYfujtiPGf5Bd0CoiMWsTKSQLPF_EMCP6KgIgRFQ7M/edit)
+* **Product Backlog:** [Backlog](https://docs.google.com/document/d/1wK893vqR6YeycGxKqYDaTwcV0PMFjQAu2SJLVI77iBM/edit#heading=h.xvg4yuhgwkhp)
 
 ---
 # Sprint 1
