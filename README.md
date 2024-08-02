@@ -205,7 +205,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 <details>
   <summary>Daily Scrum, Toplantı</summary>
   
-<img src="./ReadmeFolder/daily.png">
+<img src="./ReadmeFolder/toplantı..png">
 
 </details>
 
@@ -213,16 +213,17 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 <details>
   <summary>Ürün Durumu</summary>
   
-  ### Ev, Ağaç Örnekleri
-<img src="./ReadmeFolder/üründurumu.png">
+  ### Kamp, Köy
+
+https://github.com/user-attachments/assets/5d9cf844-920b-4c6d-9b70-20975c529f96
 
   ### Magical Stone Golem
 
-<img src="./ReadmeFolder/üründurumu3.png">
+https://github.com/user-attachments/assets/7c794cc1-f560-44a7-a213-e7f84b2b8253
 
-  ### Karakterler
+  ### Giriş Ekranı ve Karakter Görüntüsü
 
-<img src="./ReadmeFolder/üründurumu2.png">
+<img src="./ReadmeFolder/ooo1.png">
 
 </details>
 
