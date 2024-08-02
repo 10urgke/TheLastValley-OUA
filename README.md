@@ -26,6 +26,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 * Co-op oyunlara ilgi duyanlar
 * RPG ve aksiyon oyunu meraklıları
 * Fantazi türü sevenler
+* 7 yaş ve üzeri
   
 ## Product Backlog URL
 <details>
@@ -204,11 +205,7 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 <details>
   <summary>Daily Scrum, Toplantı</summary>
   
-  ### Daily Scrum
 <img src="./ReadmeFolder/daily.png">
-
-  ### Toplantı
-<img src="./ReadmeFolder/toplantı2.png">
 
 </details>
 
@@ -231,11 +228,23 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 ### Sprint Review
 
-- Önc
+- Köylü NPC'leri ve köylü kurtarma görevi için gerekli kodlar yazıldı ve düşman sınıfı ayarlandı.
+- Ölen oyuncuları F tuşuna basarak geri kaldırma eklendi.
+- Köylü görevindeki senkronizasyon sorunları düzeltildi.
+- Terrain oluşturuldu, AI'lar ve ağaçlar eklendi.
+- Son boss tasarlandı ve oyuna eklendi.
+- Enemy manager yazıldı ve boss sistemi görev sayısına göre ayarlandı.
+- Sahne geçişleri düzenlendi; boss spawnlanacak şekilde ayarlandı.
+- Ana menüdeki FX'ler ve giriş kameraları ayarlandı, görevlerin yerini göstermek için efektler hazırlandı.
+- Oyun ismine karar verildi ve logo hazırlandı.
+
 
 ### Sprint Retrospective
 
-- Gör
+- Önceden belirlenen eksik görevlere öncelik tanıyarak hızlıca haritayı birleştirmeye başladık, bu sayede projenin yarım kalma riskini en aza indirdik.
+- Yapılan işleri çift aşamalı bir kontrolden geçirmemiz sayesinde bir işin düzgün olmama veya zaman kaybetme riskini en aza indirmeye devam ettik.
+- Süremiz azaldığı için daily scrumları çoğunlukla sesli bir şekilde yaparken bir yandan da yapılan işleri inceledik.
+  
 
 
 
