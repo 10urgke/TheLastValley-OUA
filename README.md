@@ -2,6 +2,9 @@
 ## Oyun İsmi
 The Last Valley
 <img src="./ReadmeFolder/logo.png">
+---
+## **Oyun Tanıtım Videosu:** [Tanıtım Videosu](https://www.youtube.com/watch?v=M78SxntTY2c)
+---
 ## Takım İsmi
 Unity 16
 ### Takım Üyeleri
@@ -22,7 +25,7 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
 * RPG
 * Low Poly
 * Third Person
-* Macera - Aksiyon
+* Macera 
 ## Hedef Kitle
 * Co-op oyunlara ilgi duyanlar
 * RPG ve aksiyon oyunu meraklıları
@@ -33,7 +36,7 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
 * **Proje Başlangıç Dosyası:** [Başlangıç Dosyası](https://docs.google.com/document/d/13iq12gPS0i7qSZTZuIwFuuYqB2ObpJC4xRW2rkaJe4A/edit)
 * **Proje Kapanış Raporu:** [Kapanış Raporu](https://docs.google.com/document/d/1GPYfujtiPGf5Bd0CoiMWsTKSQLPF_EMCP6KgIgRFQ7M/edit)
 * **Product Backlog:** [Backlog](https://docs.google.com/document/d/1wK893vqR6YeycGxKqYDaTwcV0PMFjQAu2SJLVI77iBM/edit#heading=h.xvg4yuhgwkhp)
-* **Oyun Tanıtım Videosu:** [Tanıtım Videosu](https://www.youtube.com/watch?v=M78SxntTY2c)
+
 ---
 # Sprint 1
 * Geliştirici ekip olarak, projenin bütün temel ihtiyaçlarını karşılayabileceğimizi test ettik ve projenin bir sonuca ulaşabileceğine emin olduk.
