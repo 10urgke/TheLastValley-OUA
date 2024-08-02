@@ -43,9 +43,9 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 <img src="./ReadmeFolder/sayfa 1.png">
 </details>
 
-* Sprint içinde tamamlanması beklenen puan 50 olarak belirlenmiştir.
+* Sprint içinde tamamlanması beklenen puan 36 olarak belirlenmiştir.
   
-* **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 98 olarak belirlenmiştir. İlk sprint için 50 puan tamamlanarak hedefe ulaşılmıştır.
+* **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 133 olarak belirlenmiştir. İlk sprint için 36 puan tamamlanarak hedefe ulaşılmıştır.
   
 * **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
 <details>
@@ -119,9 +119,9 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 
 </details>
 
-* Sprint içinde tamamlanması beklenen puan 36 olarak belirlenmiştir.
+* Sprint içinde tamamlanması beklenen puan 71 olarak belirlenmiştir.
   
-* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 98 olarak belirlenmiştir. İkinci sprint için 36 puan tamamlanarak hedefe ulaşılmıştır.
+* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 133 olarak belirlenmiştir. İkinci sprint için 71 puan tamamlanarak hedefe ulaşılmıştır.
   
 * **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
 
@@ -179,6 +179,9 @@ Oyunumuz, oyuncuların karanlık bir krallıkta Kara Şövalye'nin lanetini bozm
 ---
 # Sprint 3
 * Geliştirici ekip olarak, tüm oyun mekaniklerini, karakterleri ve seviyeleri başarıyla birleştirerek oyunu tamamladık, oyun videosunu çekip editledik ve projenin planlandığı gibi çalıştığından emin olduk.
+* Sprint içinde tamamlanması beklenen puan 26 olarak belirlenmiştir.
+* **Puan Tamamlama Mantığı:** İlk sprintle aynı olarak; puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 133 olarak belirlenmiştir. İkinci sprint için 26 puan tamamlanarak hedefe ulaşılmıştır.
+  
 * **Sprint Notları:** Proje yönetimi, toplantı notları ve önemli tarihlerin hatırlatılması için notion; fikir geliştirme, daily scrum, genel konuşmalar ve toplantılar için discord kullanılmaya devam edilmiştir.
 
 
