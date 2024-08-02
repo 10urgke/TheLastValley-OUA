@@ -33,24 +33,24 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
 * **Proje Başlangıç Dosyası:** [Başlangıç Dosyası](https://docs.google.com/document/d/13iq12gPS0i7qSZTZuIwFuuYqB2ObpJC4xRW2rkaJe4A/edit)
 * **Proje Kapanış Raporu:** [Kapanış Raporu](https://docs.google.com/document/d/1GPYfujtiPGf5Bd0CoiMWsTKSQLPF_EMCP6KgIgRFQ7M/edit)
 * **Product Backlog:** [Backlog](https://docs.google.com/document/d/1wK893vqR6YeycGxKqYDaTwcV0PMFjQAu2SJLVI77iBM/edit#heading=h.xvg4yuhgwkhp)
-
+* **Oyun Tanıtım Videosu:** [Tanıtım Videosu](https://www.youtube.com/watch?v=M78SxntTY2c)
 ---
 # Sprint 1
 * Geliştirici ekip olarak, projenin bütün temel ihtiyaçlarını karşılayabileceğimizi test ettik ve projenin bir sonuca ulaşabileceğine emin olduk.
 * **Sprint Notları:** Proje yönetimi, toplantı notları ve önemli tarihlerin hatırlatılması için notion; fikir geliştirme, daily scrum, genel konuşmalar ve toplantılar için discord kullanılmasına karar verilmiştir.
-<details>
+
   <summary>Sprint Board</summary>
   
   ### Sprint Board
 <img src="./ReadmeFolder/sayfa 1.png">
-</details>
+
 
 * Sprint içinde tamamlanması beklenen puan 36 olarak belirlenmiştir.
   
 * **Puan Tamamlama Mantığı:** Puanlama sistemimiz, her görevin tamamlanması için öngörülen gün sayısına eşit puan verilerek belirlenmiştir; böylece `1 gün = 1 puan` olarak hesaplanır. Proje boyunca tamamlanması gereken backlog puanı 133 olarak belirlenmiştir. İlk sprint için 36 puan tamamlanarak hedefe ulaşılmıştır.
   
 * **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
-<details>
+
   <summary>Daily Scrum, Toplantı ve Fikir Geliştirme Ekran Görüntüleri</summary>
   
   ### Daily Scrum
@@ -62,9 +62,9 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
   ### Fikir Geliştirme
 <img src="./ReadmeFolder/oyun fikri.png">
 
-</details>
 
-<details>
+
+
   <summary>Ürün Durumu</summary>
   
   ### Karakterler
@@ -78,7 +78,6 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
 
 
 
-</details>
 
 ### Sprint Review
 
@@ -108,7 +107,7 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
 
 * Geliştirici ekip olarak, belirlenen oyun mekaniklerini ve karakter modellerini başarıyla entegre ettik, harita ve çevre tasarımlarının bir kısmını tamamlayarak oyunun temel oynanışını test edilebilir hale getirdik.
 
-<details>
+
   <summary>Sprint Board</summary>
   
 
@@ -119,7 +118,7 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
 <img src="./ReadmeFolder/2.png">
 
 
-</details>
+
 
 * Sprint içinde tamamlanması beklenen puan 71 olarak belirlenmiştir.
   
@@ -127,7 +126,7 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
   
 * **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
 
-<details>
+
   <summary>Daily Scrum, Toplantı</summary>
   
   ### Daily Scrum
@@ -136,10 +135,9 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
   ### Toplantı
 <img src="./ReadmeFolder/toplantı2.png">
 
-</details>
 
 
-<details>
+
   <summary>Ürün Durumu</summary>
   
   ### Ev, Ağaç Örnekleri
@@ -153,7 +151,6 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
 
 <img src="./ReadmeFolder/üründurumu2.png">
 
-</details>
 
 ### Sprint Review
 
@@ -183,7 +180,7 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
 
 * Geliştirici ekip olarak tüm oyun mekaniklerini, karakterleri ve seviyeleri başarıyla birleştirerek oyunu tamamladık, oyun videosunu çekip editledik ve projenin planlandığı gibi çalıştığından emin olduk.
 
-<details>
+
   <summary>Sprint Board</summary>
   
 
@@ -194,7 +191,7 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
 <img src="./ReadmeFolder/c2.png">
 
 
-</details>
+
 
 * Sprint içinde tamamlanması beklenen puan 26 olarak belirlenmiştir.
   
@@ -202,15 +199,13 @@ The Last Valley, oyuncuların vadinin lanetini kaldırmak için bir araya gelere
   
 * **Daily Scrum:** İletişimi sağladığımız discord kanalımızda daily scrum adına açılan oda üzerinde görüşmeler sağlanmıştır.
 
-<details>
+
   <summary>Daily Scrum, Toplantı</summary>
   
 <img src="./ReadmeFolder/toplantı..png">
 
-</details>
 
 
-<details>
   <summary>Ürün Durumu</summary>
   
   ### Kamp, Köy
@@ -225,7 +220,7 @@ https://github.com/user-attachments/assets/7c794cc1-f560-44a7-a213-e7f84b2b8253
 
 <img src="./ReadmeFolder/ooo1.png">
 
-</details>
+
 
 ### Sprint Review
 
